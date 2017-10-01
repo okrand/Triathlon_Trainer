@@ -1,0 +1,802 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49FB09351F814F9A00BACA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09341F814F9A00BACA3B /* AppDelegate.swift */; };
+		49FB09371F814F9A00BACA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09361F814F9A00BACA3B /* ViewController.swift */; };
+		49FB093A1F814F9A00BACA3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FB09381F814F9A00BACA3B /* Main.storyboard */; };
+		49FB093C1F814F9A00BACA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FB093B1F814F9A00BACA3B /* Assets.xcassets */; };
+		49FB093F1F814F9A00BACA3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FB093D1F814F9A00BACA3B /* LaunchScreen.storyboard */; };
+		49FB094A1F814F9A00BACA3B /* Triathlon_TrainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09491F814F9A00BACA3B /* Triathlon_TrainerTests.swift */; };
+		49FB09551F814F9A00BACA3B /* Triathlon_TrainerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09541F814F9A00BACA3B /* Triathlon_TrainerUITests.swift */; };
+		49FB095A1F814F9A00BACA3B /* Triathlon Trainer WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 49FB09591F814F9A00BACA3B /* Triathlon Trainer WatchKit App.app */; };
+		49FB09601F814F9A00BACA3B /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FB095E1F814F9A00BACA3B /* Interface.storyboard */; };
+		49FB09621F814F9A00BACA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FB09611F814F9A00BACA3B /* Assets.xcassets */; };
+		49FB09691F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 49FB09681F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		49FB09701F814F9A00BACA3B /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB096F1F814F9A00BACA3B /* InterfaceController.swift */; };
+		49FB09721F814F9A00BACA3B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */; };
+		49FB09741F814F9A00BACA3B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09731F814F9A00BACA3B /* NotificationController.swift */; };
+		49FB09761F814F9A00BACA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FB09751F814F9A00BACA3B /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		49FB09461F814F9A00BACA3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49FB09291F814F9A00BACA3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49FB09301F814F9A00BACA3B;
+			remoteInfo = "Triathlon Trainer";
+		};
+		49FB09511F814F9A00BACA3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49FB09291F814F9A00BACA3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49FB09301F814F9A00BACA3B;
+			remoteInfo = "Triathlon Trainer";
+		};
+		49FB095B1F814F9A00BACA3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49FB09291F814F9A00BACA3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49FB09581F814F9A00BACA3B;
+			remoteInfo = "Triathlon Trainer WatchKit App";
+		};
+		49FB096A1F814F9A00BACA3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49FB09291F814F9A00BACA3B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49FB09671F814F9A00BACA3B;
+			remoteInfo = "Triathlon Trainer WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		49FB097D1F814F9A00BACA3B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				49FB09691F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09811F814F9A00BACA3B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				49FB095A1F814F9A00BACA3B /* Triathlon Trainer WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		49FB09311F814F9A00BACA3B /* Triathlon Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Triathlon Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FB09341F814F9A00BACA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		49FB09361F814F9A00BACA3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		49FB09391F814F9A00BACA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		49FB093B1F814F9A00BACA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49FB093E1F814F9A00BACA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		49FB09401F814F9A00BACA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FB09451F814F9A00BACA3B /* Triathlon TrainerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Triathlon TrainerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FB09491F814F9A00BACA3B /* Triathlon_TrainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triathlon_TrainerTests.swift; sourceTree = "<group>"; };
+		49FB094B1F814F9A00BACA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FB09501F814F9A00BACA3B /* Triathlon TrainerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Triathlon TrainerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FB09541F814F9A00BACA3B /* Triathlon_TrainerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triathlon_TrainerUITests.swift; sourceTree = "<group>"; };
+		49FB09561F814F9A00BACA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FB09591F814F9A00BACA3B /* Triathlon Trainer WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Triathlon Trainer WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FB095F1F814F9A00BACA3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		49FB09611F814F9A00BACA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49FB09631F814F9A00BACA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FB09681F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Triathlon Trainer WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FB096E1F814F9A00BACA3B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		49FB096F1F814F9A00BACA3B /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		49FB09731F814F9A00BACA3B /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		49FB09751F814F9A00BACA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		49FB09771F814F9A00BACA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		49FB092E1F814F9A00BACA3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09421F814F9A00BACA3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB094D1F814F9A00BACA3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09651F814F9A00BACA3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		49FB09281F814F9A00BACA3B = {
+			isa = PBXGroup;
+			children = (
+				49FB09331F814F9A00BACA3B /* Triathlon Trainer */,
+				49FB09481F814F9A00BACA3B /* Triathlon TrainerTests */,
+				49FB09531F814F9A00BACA3B /* Triathlon TrainerUITests */,
+				49FB095D1F814F9A00BACA3B /* Triathlon Trainer WatchKit App */,
+				49FB096C1F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */,
+				49FB09321F814F9A00BACA3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		49FB09321F814F9A00BACA3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				49FB09311F814F9A00BACA3B /* Triathlon Trainer.app */,
+				49FB09451F814F9A00BACA3B /* Triathlon TrainerTests.xctest */,
+				49FB09501F814F9A00BACA3B /* Triathlon TrainerUITests.xctest */,
+				49FB09591F814F9A00BACA3B /* Triathlon Trainer WatchKit App.app */,
+				49FB09681F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		49FB09331F814F9A00BACA3B /* Triathlon Trainer */ = {
+			isa = PBXGroup;
+			children = (
+				49FB09341F814F9A00BACA3B /* AppDelegate.swift */,
+				49FB09361F814F9A00BACA3B /* ViewController.swift */,
+				49FB09381F814F9A00BACA3B /* Main.storyboard */,
+				49FB093B1F814F9A00BACA3B /* Assets.xcassets */,
+				49FB093D1F814F9A00BACA3B /* LaunchScreen.storyboard */,
+				49FB09401F814F9A00BACA3B /* Info.plist */,
+			);
+			path = "Triathlon Trainer";
+			sourceTree = "<group>";
+		};
+		49FB09481F814F9A00BACA3B /* Triathlon TrainerTests */ = {
+			isa = PBXGroup;
+			children = (
+				49FB09491F814F9A00BACA3B /* Triathlon_TrainerTests.swift */,
+				49FB094B1F814F9A00BACA3B /* Info.plist */,
+			);
+			path = "Triathlon TrainerTests";
+			sourceTree = "<group>";
+		};
+		49FB09531F814F9A00BACA3B /* Triathlon TrainerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				49FB09541F814F9A00BACA3B /* Triathlon_TrainerUITests.swift */,
+				49FB09561F814F9A00BACA3B /* Info.plist */,
+			);
+			path = "Triathlon TrainerUITests";
+			sourceTree = "<group>";
+		};
+		49FB095D1F814F9A00BACA3B /* Triathlon Trainer WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				49FB095E1F814F9A00BACA3B /* Interface.storyboard */,
+				49FB09611F814F9A00BACA3B /* Assets.xcassets */,
+				49FB09631F814F9A00BACA3B /* Info.plist */,
+			);
+			path = "Triathlon Trainer WatchKit App";
+			sourceTree = "<group>";
+		};
+		49FB096C1F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				49FB096F1F814F9A00BACA3B /* InterfaceController.swift */,
+				49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */,
+				49FB09731F814F9A00BACA3B /* NotificationController.swift */,
+				49FB09751F814F9A00BACA3B /* Assets.xcassets */,
+				49FB09771F814F9A00BACA3B /* Info.plist */,
+				49FB096D1F814F9A00BACA3B /* Supporting Files */,
+			);
+			path = "Triathlon Trainer WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		49FB096D1F814F9A00BACA3B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49FB096E1F814F9A00BACA3B /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		49FB09301F814F9A00BACA3B /* Triathlon Trainer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49FB09821F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer" */;
+			buildPhases = (
+				49FB092D1F814F9A00BACA3B /* Sources */,
+				49FB092E1F814F9A00BACA3B /* Frameworks */,
+				49FB092F1F814F9A00BACA3B /* Resources */,
+				49FB09811F814F9A00BACA3B /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49FB095C1F814F9A00BACA3B /* PBXTargetDependency */,
+			);
+			name = "Triathlon Trainer";
+			productName = "Triathlon Trainer";
+			productReference = 49FB09311F814F9A00BACA3B /* Triathlon Trainer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		49FB09441F814F9A00BACA3B /* Triathlon TrainerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49FB09851F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon TrainerTests" */;
+			buildPhases = (
+				49FB09411F814F9A00BACA3B /* Sources */,
+				49FB09421F814F9A00BACA3B /* Frameworks */,
+				49FB09431F814F9A00BACA3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49FB09471F814F9A00BACA3B /* PBXTargetDependency */,
+			);
+			name = "Triathlon TrainerTests";
+			productName = "Triathlon TrainerTests";
+			productReference = 49FB09451F814F9A00BACA3B /* Triathlon TrainerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		49FB094F1F814F9A00BACA3B /* Triathlon TrainerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49FB09881F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon TrainerUITests" */;
+			buildPhases = (
+				49FB094C1F814F9A00BACA3B /* Sources */,
+				49FB094D1F814F9A00BACA3B /* Frameworks */,
+				49FB094E1F814F9A00BACA3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49FB09521F814F9A00BACA3B /* PBXTargetDependency */,
+			);
+			name = "Triathlon TrainerUITests";
+			productName = "Triathlon TrainerUITests";
+			productReference = 49FB09501F814F9A00BACA3B /* Triathlon TrainerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		49FB09581F814F9A00BACA3B /* Triathlon Trainer WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49FB097E1F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer WatchKit App" */;
+			buildPhases = (
+				49FB09571F814F9A00BACA3B /* Resources */,
+				49FB097D1F814F9A00BACA3B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49FB096B1F814F9A00BACA3B /* PBXTargetDependency */,
+			);
+			name = "Triathlon Trainer WatchKit App";
+			productName = "Triathlon Trainer WatchKit App";
+			productReference = 49FB09591F814F9A00BACA3B /* Triathlon Trainer WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		49FB09671F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49FB097A1F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer WatchKit Extension" */;
+			buildPhases = (
+				49FB09641F814F9A00BACA3B /* Sources */,
+				49FB09651F814F9A00BACA3B /* Frameworks */,
+				49FB09661F814F9A00BACA3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Triathlon Trainer WatchKit Extension";
+			productName = "Triathlon Trainer WatchKit Extension";
+			productReference = 49FB09681F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		49FB09291F814F9A00BACA3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				TargetAttributes = {
+					49FB09301F814F9A00BACA3B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					49FB09441F814F9A00BACA3B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 49FB09301F814F9A00BACA3B;
+					};
+					49FB094F1F814F9A00BACA3B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 49FB09301F814F9A00BACA3B;
+					};
+					49FB09581F814F9A00BACA3B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					49FB09671F814F9A00BACA3B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 49FB092C1F814F9A00BACA3B /* Build configuration list for PBXProject "Triathlon Trainer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 49FB09281F814F9A00BACA3B;
+			productRefGroup = 49FB09321F814F9A00BACA3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				49FB09301F814F9A00BACA3B /* Triathlon Trainer */,
+				49FB09441F814F9A00BACA3B /* Triathlon TrainerTests */,
+				49FB094F1F814F9A00BACA3B /* Triathlon TrainerUITests */,
+				49FB09581F814F9A00BACA3B /* Triathlon Trainer WatchKit App */,
+				49FB09671F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		49FB092F1F814F9A00BACA3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB093F1F814F9A00BACA3B /* LaunchScreen.storyboard in Resources */,
+				49FB093C1F814F9A00BACA3B /* Assets.xcassets in Resources */,
+				49FB093A1F814F9A00BACA3B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09431F814F9A00BACA3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB094E1F814F9A00BACA3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09571F814F9A00BACA3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB09621F814F9A00BACA3B /* Assets.xcassets in Resources */,
+				49FB09601F814F9A00BACA3B /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09661F814F9A00BACA3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB09761F814F9A00BACA3B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		49FB092D1F814F9A00BACA3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB09371F814F9A00BACA3B /* ViewController.swift in Sources */,
+				49FB09351F814F9A00BACA3B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09411F814F9A00BACA3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB094A1F814F9A00BACA3B /* Triathlon_TrainerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB094C1F814F9A00BACA3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB09551F814F9A00BACA3B /* Triathlon_TrainerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49FB09641F814F9A00BACA3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49FB09741F814F9A00BACA3B /* NotificationController.swift in Sources */,
+				49FB09721F814F9A00BACA3B /* ExtensionDelegate.swift in Sources */,
+				49FB09701F814F9A00BACA3B /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		49FB09471F814F9A00BACA3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49FB09301F814F9A00BACA3B /* Triathlon Trainer */;
+			targetProxy = 49FB09461F814F9A00BACA3B /* PBXContainerItemProxy */;
+		};
+		49FB09521F814F9A00BACA3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49FB09301F814F9A00BACA3B /* Triathlon Trainer */;
+			targetProxy = 49FB09511F814F9A00BACA3B /* PBXContainerItemProxy */;
+		};
+		49FB095C1F814F9A00BACA3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49FB09581F814F9A00BACA3B /* Triathlon Trainer WatchKit App */;
+			targetProxy = 49FB095B1F814F9A00BACA3B /* PBXContainerItemProxy */;
+		};
+		49FB096B1F814F9A00BACA3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49FB09671F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */;
+			targetProxy = 49FB096A1F814F9A00BACA3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		49FB09381F814F9A00BACA3B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49FB09391F814F9A00BACA3B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		49FB093D1F814F9A00BACA3B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49FB093E1F814F9A00BACA3B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		49FB095E1F814F9A00BACA3B /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				49FB095F1F814F9A00BACA3B /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		49FB09781F814F9A00BACA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		49FB09791F814F9A00BACA3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		49FB097B1F814F9A00BACA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "Triathlon Trainer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		49FB097C1F814F9A00BACA3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "Triathlon Trainer WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		49FB097F1F814F9A00BACA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Triathlon_Trainer_WatchKit_Extension;
+				INFOPLIST_FILE = "Triathlon Trainer WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		49FB09801F814F9A00BACA3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				IBSC_MODULE = Triathlon_Trainer_WatchKit_Extension;
+				INFOPLIST_FILE = "Triathlon Trainer WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		49FB09831F814F9A00BACA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Triathlon Trainer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		49FB09841F814F9A00BACA3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Triathlon Trainer/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		49FB09861F814F9A00BACA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Triathlon TrainerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-TrainerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Triathlon Trainer.app/Triathlon Trainer";
+			};
+			name = Debug;
+		};
+		49FB09871F814F9A00BACA3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Triathlon TrainerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-TrainerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Triathlon Trainer.app/Triathlon Trainer";
+			};
+			name = Release;
+		};
+		49FB09891F814F9A00BACA3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Triathlon TrainerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-TrainerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Triathlon Trainer";
+			};
+			name = Debug;
+		};
+		49FB098A1F814F9A00BACA3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = "Triathlon TrainerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-TrainerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Triathlon Trainer";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49FB092C1F814F9A00BACA3B /* Build configuration list for PBXProject "Triathlon Trainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49FB09781F814F9A00BACA3B /* Debug */,
+				49FB09791F814F9A00BACA3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49FB097A1F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49FB097B1F814F9A00BACA3B /* Debug */,
+				49FB097C1F814F9A00BACA3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49FB097E1F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49FB097F1F814F9A00BACA3B /* Debug */,
+				49FB09801F814F9A00BACA3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49FB09821F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49FB09831F814F9A00BACA3B /* Debug */,
+				49FB09841F814F9A00BACA3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49FB09851F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon TrainerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49FB09861F814F9A00BACA3B /* Debug */,
+				49FB09871F814F9A00BACA3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		49FB09881F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon TrainerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49FB09891F814F9A00BACA3B /* Debug */,
+				49FB098A1F814F9A00BACA3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 49FB09291F814F9A00BACA3B /* Project object */;
+}
