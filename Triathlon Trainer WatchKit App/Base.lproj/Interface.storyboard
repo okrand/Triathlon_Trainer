@@ -21,6 +21,11 @@
                         <label alignment="left" text="Y: " id="CSl-nW-iWD" userLabel="Y-Axis"/>
                         <label alignment="left" text="Z: " id="wOy-1M-xN8" userLabel="Z-Axis"/>
                     </items>
+                    <connections>
+                        <outlet property="XAxis" destination="wN9-WE-OP6" id="LbS-10-0BX"/>
+                        <outlet property="YAxis" destination="CSl-nW-iWD" id="u2Y-cs-rGa"/>
+                        <outlet property="ZAxis" destination="wOy-1M-xN8" id="MRo-Ld-ucK"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="219.69230769230771" y="344.79487179487182"/>
