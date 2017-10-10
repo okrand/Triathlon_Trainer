@@ -11,7 +11,9 @@ import CoreMotion
 import Foundation
 
 class InterfaceController: WKInterfaceController {
-    
+    @IBOutlet weak var XAxis: WKInterfaceLabel!
+    @IBOutlet weak var YAxis: WKInterfaceLabel!
+    @IBOutlet weak var ZAxis: WKInterfaceLabel!
     let motion = CMMotionManager()
     
     func startAccelerometers() {
@@ -30,8 +32,9 @@ class InterfaceController: WKInterfaceController {
                                     let z = data.acceleration.z
                                     
                                     // Use the accelerometer data in your app.
-                                    var XAxis: WKInterfaceLabel!
-                                    XAxis.setText(String(x))
+                                    self.XAxis.setText(String(x))
+                                    self.YAxis.setText(String(y))
+                                    self.ZAxis.setText(String(z))
                                 }
             })
             
