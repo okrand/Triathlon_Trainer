@@ -1,0 +1,15 @@
+
+/* Class = "WKInterfaceLabel"; text = "Y: "; ObjectID = "CSl-nW-iWD"; */
+"CSl-nW-iWD.text" = "Y: ";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceLabel"; text = "X: "; ObjectID = "wN9-WE-OP6"; */
+"wN9-WE-OP6.text" = "X: ";
+
+/* Class = "WKInterfaceLabel"; text = "Z: "; ObjectID = "wOy-1M-xN8"; */
+"wOy-1M-xN8.text" = "Z: ";
+
+/* Class = "WKInterfaceLabel"; text = "ACCELEROMETER"; ObjectID = "zx0-WI-mdG"; */
+"zx0-WI-mdG.text" = "ACCELEROMETER";

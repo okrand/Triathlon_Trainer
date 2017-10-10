@@ -324,10 +324,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				TargetAttributes = {
 					49FB09301F814F9A00BACA3B = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9UYNGK5T3A;
 						ProvisioningStyle = Automatic;
 					};
 					49FB09441F814F9A00BACA3B = {
@@ -342,10 +343,12 @@
 					};
 					49FB09581F814F9A00BACA3B = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9UYNGK5T3A;
 						ProvisioningStyle = Automatic;
 					};
 					49FB09671F814F9A00BACA3B = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9UYNGK5T3A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -515,7 +518,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -523,7 +528,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -566,7 +575,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -574,7 +585,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -604,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				INFOPLIST_FILE = "Triathlon Trainer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp.watchkitextension";
@@ -620,6 +636,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				INFOPLIST_FILE = "Triathlon Trainer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp.watchkitextension";
@@ -637,6 +654,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				IBSC_MODULE = Triathlon_Trainer_WatchKit_Extension;
 				INFOPLIST_FILE = "Triathlon Trainer WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp";
@@ -654,6 +672,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				IBSC_MODULE = Triathlon_Trainer_WatchKit_Extension;
 				INFOPLIST_FILE = "Triathlon Trainer WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer.watchkitapp";
@@ -670,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				INFOPLIST_FILE = "Triathlon Trainer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer";
@@ -682,6 +702,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				INFOPLIST_FILE = "Triathlon Trainer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Triathlon-Trainer";
@@ -763,6 +784,7 @@
 				49FB097C1F814F9A00BACA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FB097E1F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer WatchKit App" */ = {
 			isa = XCConfigurationList;
@@ -771,6 +793,7 @@
 				49FB09801F814F9A00BACA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FB09821F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon Trainer" */ = {
 			isa = XCConfigurationList;
@@ -779,6 +802,7 @@
 				49FB09841F814F9A00BACA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FB09851F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon TrainerTests" */ = {
 			isa = XCConfigurationList;
@@ -787,6 +811,7 @@
 				49FB09871F814F9A00BACA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FB09881F814F9A00BACA3B /* Build configuration list for PBXNativeTarget "Triathlon TrainerUITests" */ = {
 			isa = XCConfigurationList;
@@ -795,6 +820,7 @@
 				49FB098A1F814F9A00BACA3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
