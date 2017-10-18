@@ -54,20 +54,20 @@ class InterfaceController: WKInterfaceController {
                                     let y = String(format: "%.4f", adata.acceleration.y)
                                     let z = String(format: "%.4f", adata.acceleration.z)
                                     
-                                    // Use the accelerometer data in your app.
+                                 //Use the accelerometer data in your app.
                                     self.XAxis.setText("X: "+x)
                                     self.YAxis.setText("Y: "+y)
                                     self.ZAxis.setText("Z: "+z)
                                 }
-                                if let rdata = self.motion.gyroData {
-                                    let rx = String(format: "%.4f", rdata.rotationRate.x)
-                                    let ry = String(format: "%.4f", rdata.rotationRate.y)
-                                    let rz = String(format: "%.4f", rdata.rotationRate.z)
+                                //if let rdata = self.motion.gyroData {
+                                    //let rx = String(format: "%.4f", rdata.rotationRate.x)
+                                    //let ry = String(format: "%.4f", rdata.rotationRate.y)
+                                    //let rz = String(format: "%.4f", rdata.rotationRate.z)
                                     
-                                    self.XRotAxis.setText("X: "+rx)
-                                    self.YRotAxis.setText("Y: "+ry)
-                                    self.ZRotAxis.setText("Z: "+rz)
-                                }
+                                    //self.XRotAxis.setText("X: "+rx)
+                                    //self.YRotAxis.setText("Y: "+ry)
+                                    //self.ZRotAxis.setText("Z: "+rz)
+                                //}
                                 if let mdata = self.motion.magnetometerData {
                                     let mx = String(format: "%.4f", mdata.magneticField.x)
                                     let my = String(format: "%.4f", mdata.magneticField.y)
@@ -81,6 +81,9 @@ class InterfaceController: WKInterfaceController {
                                     let Ax = String(format: "%.4f", odata.userAcceleration.x)
                                     let Ay = String(format: "%.4f", odata.userAcceleration.y)
                                     let Az = String(format: "%.4f", odata.userAcceleration.z)
+                                    let Rx = String(format: "&.4f", odata.rotationRate.x)
+                                    let Ry = String(format: "&.4f", odata.rotationRate.y)
+                                    let Rz = String(format: "&.4f", odata.rotationRate.z)
                                     var H = " "
                                     if #available(watchOSApplicationExtension 4.0, *) {
                                         H = String(format: "%.4f", odata.heading)
@@ -89,6 +92,9 @@ class InterfaceController: WKInterfaceController {
                                     self.YMotAxis.setText("Ay: " + Ay)
                                     self.ZMotAxis.setText("Az: " + Az)
                                     self.HMot.setText("H: " + H)
+                                    self.XRotAxis.setText("X: "+Rx)
+                                    self.YRotAxis.setText("Y: "+Ry)
+                                    self.ZRotAxis.setText("Z: "+Rz)
                                 }
             })
             
