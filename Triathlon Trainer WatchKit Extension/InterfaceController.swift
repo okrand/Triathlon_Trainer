@@ -2,7 +2,7 @@
 //  InterfaceController.swift
 //  Triathlon Trainer WatchKit Extension
 //
-//  Created by Justin Schaffner on 10/1/17.
+//  Created by Justin Whitlock and Orkun Krand on 10/1/17.
 //
 //
 

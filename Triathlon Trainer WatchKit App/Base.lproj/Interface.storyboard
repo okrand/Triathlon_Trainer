@@ -20,15 +20,29 @@
                         </label>
                         <label alignment="left" text="Y: " id="CSl-nW-iWD" userLabel="Y-Axis"/>
                         <label alignment="left" text="Z: " id="wOy-1M-xN8" userLabel="Z-Axis"/>
+                        <label width="95" alignment="left" text="GYROSCOPE" id="RcZ-Yg-0kY"/>
+                        <label alignment="left" text="X:" id="Uuz-gV-70x"/>
+                        <label alignment="left" text="Y:" id="qMD-zG-3cq"/>
+                        <label alignment="left" text="Z:" id="4ud-UL-KVW"/>
+                        <label alignment="left" text="Magnetometer" id="jpq-za-4oE"/>
+                        <label alignment="left" text="X:" id="hcV-oH-v77"/>
+                        <label alignment="left" text="Y:" id="2Cp-eH-xC4"/>
+                        <label alignment="left" text="Z:" id="rQr-E2-92H"/>
                     </items>
                     <connections>
                         <outlet property="XAxis" destination="wN9-WE-OP6" id="LbS-10-0BX"/>
+                        <outlet property="XMagAxis" destination="hcV-oH-v77" id="nlw-Qg-dRl"/>
+                        <outlet property="XRotAxis" destination="Uuz-gV-70x" id="37F-hI-A8d"/>
                         <outlet property="YAxis" destination="CSl-nW-iWD" id="u2Y-cs-rGa"/>
+                        <outlet property="YMagAxis" destination="2Cp-eH-xC4" id="R0c-6d-M7y"/>
+                        <outlet property="YRotAxis" destination="qMD-zG-3cq" id="8NL-oF-K0n"/>
                         <outlet property="ZAxis" destination="wOy-1M-xN8" id="MRo-Ld-ucK"/>
+                        <outlet property="ZMagAxis" destination="rQr-E2-92H" id="o6d-sE-E2q"/>
+                        <outlet property="ZRotAxis" destination="4ud-UL-KVW" id="Xha-Wj-oJM"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="219.69230769230771" y="344.79487179487182"/>
+            <point key="canvasLocation" x="219" y="344"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
