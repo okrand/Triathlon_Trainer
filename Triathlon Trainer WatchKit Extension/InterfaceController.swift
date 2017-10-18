@@ -20,6 +20,10 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var XMagAxis: WKInterfaceLabel!
     @IBOutlet weak var YMagAxis: WKInterfaceLabel!
     @IBOutlet weak var ZMagAxis: WKInterfaceLabel!
+    @IBOutlet weak var XMotAxis: WKInterfaceLabel!
+    @IBOutlet weak var YMotAxis: WKInterfaceLabel!
+    @IBOutlet weak var ZMotAxis: WKInterfaceLabel!
+    @IBOutlet weak var HMot: WKInterfaceLabel!
     let motion = CMMotionManager()
     
     func startAccelerometers() {
@@ -36,6 +40,10 @@ class InterfaceController: WKInterfaceController {
             self.motion.magnetometerUpdateInterval = 1.0 / 60.0 //60 Hz
             self.motion.startMagnetometerUpdates()
         }
+        if self.motion.isDeviceMotionAvailable{
+            self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
+            self.motion.startDeviceMotionUpdates()
+        }
             // Configure a timer to fetch the data.
             let timer = Timer(fire: Date(), interval: (1.0/2.0),
                                repeats: true, block: { (timer) in
@@ -51,22 +59,35 @@ class InterfaceController: WKInterfaceController {
                                     self.ZAxis.setText("Z: "+z)
                                 }
                                 if let rdata = self.motion.gyroData {
-                                    let x = String(format: "%.4f", rdata.rotationRate.x)
-                                    let y = String(format: "%.4f", rdata.rotationRate.y)
-                                    let z = String(format: "%.4f", rdata.rotationRate.z)
+                                    let rx = String(format: "%.4f", rdata.rotationRate.x)
+                                    let ry = String(format: "%.4f", rdata.rotationRate.y)
+                                    let rz = String(format: "%.4f", rdata.rotationRate.z)
                                     
-                                    self.XRotAxis.setText("X: "+x)
-                                    self.YRotAxis.setText("Y: "+y)
-                                    self.ZRotAxis.setText("Z: "+z)
+                                    self.XRotAxis.setText("X: "+rx)
+                                    self.YRotAxis.setText("Y: "+ry)
+                                    self.ZRotAxis.setText("Z: "+rz)
                                 }
                                 if let mdata = self.motion.magnetometerData {
-                                    let x = String(format: "%.4f", mdata.magneticField.x)
-                                    let y = String(format: "%.4f", mdata.magneticField.y)
-                                    let z = String(format: "%.4f", mdata.magneticField.z)
+                                    let mx = String(format: "%.4f", mdata.magneticField.x)
+                                    let my = String(format: "%.4f", mdata.magneticField.y)
+                                    let mz = String(format: "%.4f", mdata.magneticField.z)
                                     
-                                    self.XMagAxis.setText("X: "+x)
-                                    self.YMagAxis.setText("Y: "+y)
-                                    self.ZMagAxis.setText("Z: "+z)
+                                    self.XMagAxis.setText("X: "+mx)
+                                    self.YMagAxis.setText("Y: "+my)
+                                    self.ZMagAxis.setText("Z: "+mz)
+                                }
+                                if let odata = self.motion.deviceMotion{
+                                    let Ax = String(format: "%.4f", odata.userAcceleration.x)
+                                    let Ay = String(format: "%.4f", odata.userAcceleration.y)
+                                    let Az = String(format: "%.4f", odata.userAcceleration.z)
+                                    var H = " "
+                                    if #available(watchOSApplicationExtension 4.0, *) {
+                                        H = String(format: "%.4f", odata.heading)
+                                    }
+                                    self.XMotAxis.setText("Ax: " + Ax)
+                                    self.YMotAxis.setText("Ay: " + Ay)
+                                    self.ZMotAxis.setText("Az: " + Az)
+                                    self.HMot.setText("H: " + H)
                                 }
             })
             
