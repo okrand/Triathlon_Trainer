@@ -25,6 +25,7 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var ZMotAxis: WKInterfaceLabel!
     @IBOutlet weak var HMot: WKInterfaceLabel!
     let motion = CMMotionManager()
+    var timer: Timer!
     
     func startAccelerometers() {
         // Make sure the accelerometer hardware is available.
@@ -45,7 +46,7 @@ class InterfaceController: WKInterfaceController {
             self.motion.startDeviceMotionUpdates()
         }
             // Configure a timer to fetch the data.
-            let timer = Timer(fire: Date(), interval: (1.0/2.0),
+            timer = Timer(fire: Date(), interval: (1.0/60.0),
                                repeats: true, block: { (timer) in
                                 // Get the accelerometer data.
                                 if let adata = self.motion.accelerometerData {
