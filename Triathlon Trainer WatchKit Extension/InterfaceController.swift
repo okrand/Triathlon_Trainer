@@ -17,6 +17,9 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var XRotAxis: WKInterfaceLabel!
     @IBOutlet weak var YRotAxis: WKInterfaceLabel!
     @IBOutlet weak var ZRotAxis: WKInterfaceLabel!
+    @IBOutlet weak var XMagAxis: WKInterfaceLabel!
+    @IBOutlet weak var YMagAxis: WKInterfaceLabel!
+    @IBOutlet weak var ZMagAxis: WKInterfaceLabel!
     let motion = CMMotionManager()
     
     func startAccelerometers() {
@@ -37,24 +40,33 @@ class InterfaceController: WKInterfaceController {
             let timer = Timer(fire: Date(), interval: (1.0/2.0),
                                repeats: true, block: { (timer) in
                                 // Get the accelerometer data.
-                                if let data = self.motion.accelerometerData {
-                                    let x = String(format: "%.4f", data.acceleration.x)
-                                    let y = String(format: "%.4f", data.acceleration.y)
-                                    let z = String(format: "%.4f", data.acceleration.z)
+                                if let adata = self.motion.accelerometerData {
+                                    let x = String(format: "%.4f", adata.acceleration.x)
+                                    let y = String(format: "%.4f", adata.acceleration.y)
+                                    let z = String(format: "%.4f", adata.acceleration.z)
                                     
                                     // Use the accelerometer data in your app.
                                     self.XAxis.setText("X: "+x)
                                     self.YAxis.setText("Y: "+y)
                                     self.ZAxis.setText("Z: "+z)
                                 }
-                                if let data = self.motion.gyroData {
-                                    let x = String( format: "%.4f", data.rotationRate.x)
-                                    let y = String(format: "%.4f", data.rotationRate.y)
-                                    let z = String(format: "%.4f", data.rotationRate.z)
+                                if let rdata = self.motion.gyroData {
+                                    let x = String(format: "%.4f", rdata.rotationRate.x)
+                                    let y = String(format: "%.4f", rdata.rotationRate.y)
+                                    let z = String(format: "%.4f", rdata.rotationRate.z)
                                     
                                     self.XRotAxis.setText("X: "+x)
                                     self.YRotAxis.setText("Y: "+y)
                                     self.ZRotAxis.setText("Z: "+z)
+                                }
+                                if let mdata = self.motion.magnetometerData {
+                                    let x = String(format: "%.4f", mdata.magneticField.x)
+                                    let y = String(format: "%.4f", mdata.magneticField.y)
+                                    let z = String(format: "%.4f", mdata.magneticField.z)
+                                    
+                                    self.XMagAxis.setText("X: "+x)
+                                    self.YMagAxis.setText("Y: "+y)
+                                    self.ZMagAxis.setText("Z: "+z)
                                 }
             })
             
