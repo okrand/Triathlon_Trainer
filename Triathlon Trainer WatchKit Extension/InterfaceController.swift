@@ -81,9 +81,9 @@ class InterfaceController: WKInterfaceController {
                                     let Ax = String(format: "%.4f", odata.userAcceleration.x)
                                     let Ay = String(format: "%.4f", odata.userAcceleration.y)
                                     let Az = String(format: "%.4f", odata.userAcceleration.z)
-                                    let Rx = String(format: "&.4f", odata.rotationRate.x)
-                                    let Ry = String(format: "&.4f", odata.rotationRate.y)
-                                    let Rz = String(format: "&.4f", odata.rotationRate.z)
+                                    let Rx = String(format: "%.4f", odata.rotationRate.x)
+                                    let Ry = String(format: "%.4f", odata.rotationRate.y)
+                                    let Rz = String(format: "%.4f", odata.rotationRate.z)
                                     var H = " "
                                     if #available(watchOSApplicationExtension 4.0, *) {
                                         H = String(format: "%.4f", odata.heading)
