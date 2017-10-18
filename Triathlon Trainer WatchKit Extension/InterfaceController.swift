@@ -10,7 +10,16 @@ import WatchKit
 import CoreMotion
 import Foundation
 
+extension CMSensorDataList: Sequence {
+    public func makeIterator() -> NSFastEnumerationIterator {
+        return NSFastEnumerationIterator(self)
+    }
+}
+
 class InterfaceController: WKInterfaceController {
+    let extensionDelegate = WKExtension.shared().delegate as! ExtensionDelegate
+    
+    @IBOutlet weak var theButton: WKInterfaceButton!
     @IBOutlet weak var XAxis: WKInterfaceLabel!
     @IBOutlet weak var YAxis: WKInterfaceLabel!
     @IBOutlet weak var ZAxis: WKInterfaceLabel!
@@ -24,10 +33,23 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var YMotAxis: WKInterfaceLabel!
     @IBOutlet weak var ZMotAxis: WKInterfaceLabel!
     @IBOutlet weak var HMot: WKInterfaceLabel!
+    @IBAction func pressButton(){
+        updateButtonText(newText: "Stop Recording")
+        
+    }
     let motion = CMMotionManager()
     var timer: Timer!
+    var latestDate = Date.distantPast
     
     func startAccelerometers() {
+        if CMSensorRecorder.isAccelerometerRecordingAvailable() {
+            updateButtonText(newText: "Start Recording")
+            let recorder = CMSensorRecorder()
+            recorder.recordAccelerometer(forDuration: 120)  // Record for 2 minutes
+        }
+        else{
+            updateButtonText(newText: "Not Ready!!")
+        }
         // Make sure the accelerometer hardware is available.
         if self.motion.isAccelerometerAvailable {
             self.motion.accelerometerUpdateInterval = 1.0 / 60.0  // 60 Hz
@@ -97,10 +119,15 @@ class InterfaceController: WKInterfaceController {
                                     self.ZRotAxis.setText("Z: "+Rz)
                                 }
             })
-            
+
+        
             // Add the timer to the current run loop.
             RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
         
+    }
+    
+    func updateButtonText(newText: String){
+        theButton.setTitle(newText)
     }
     
     override func awake(withContext context: Any?) {

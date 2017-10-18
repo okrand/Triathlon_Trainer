@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
@@ -14,6 +14,11 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Triathlon_Trainer_WatchKit_App" customModuleProvider="target">
                     <items>
+                        <button width="1" alignment="left" title="Button" id="Oc1-5h-C3b">
+                            <connections>
+                                <action selector="pressButton" destination="AgC-eL-Hgc" id="EGm-88-FZJ"/>
+                            </connections>
+                        </button>
                         <label width="154" height="40" alignment="left" text="ACCELEROMETER" id="zx0-WI-mdG"/>
                         <label alignment="left" text="X: " id="wN9-WE-OP6" userLabel="XAxis">
                             <accessibilityTraits key="accessibilityTraits" staticText="YES" updatesFrequently="YES"/>
@@ -48,6 +53,7 @@
                         <outlet property="ZMagAxis" destination="rQr-E2-92H" id="o6d-sE-E2q"/>
                         <outlet property="ZMotAxis" destination="LBO-cR-U4T" id="Rez-aE-seQ"/>
                         <outlet property="ZRotAxis" destination="4ud-UL-KVW" id="Xha-Wj-oJM"/>
+                        <outlet property="theButton" destination="Oc1-5h-C3b" id="27i-rL-ZNA"/>
                     </connections>
                 </controller>
             </objects>
