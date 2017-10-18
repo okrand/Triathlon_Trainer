@@ -23,18 +23,18 @@ class InterfaceController: WKInterfaceController {
             self.motion.startAccelerometerUpdates()
             
             // Configure a timer to fetch the data.
-            let timer = Timer(fire: Date(), interval: (1.0/60.0),
+            let timer = Timer(fire: Date(), interval: (1.0/2.0),
                                repeats: true, block: { (timer) in
                                 // Get the accelerometer data.
                                 if let data = self.motion.accelerometerData {
-                                    let x = data.acceleration.x
-                                    let y = data.acceleration.y
-                                    let z = data.acceleration.z
+                                    let x = String(format: "%.4f", data.acceleration.x)
+                                    let y = String(format: "%.4f", data.acceleration.y)
+                                    let z = String(format: "%.4f", data.acceleration.z)
                                     
                                     // Use the accelerometer data in your app.
-                                    self.XAxis.setText(String(x))
-                                    self.YAxis.setText(String(y))
-                                    self.ZAxis.setText(String(z))
+                                    self.XAxis.setText("X: "+x)
+                                    self.YAxis.setText("Y: "+y)
+                                    self.ZAxis.setText("Z: "+z)
                                 }
             })
             
@@ -47,6 +47,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
+        startAccelerometers()
     }
     
     override func willActivate() {
