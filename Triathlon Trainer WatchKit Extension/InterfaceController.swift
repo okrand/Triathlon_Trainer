@@ -14,6 +14,9 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var XAxis: WKInterfaceLabel!
     @IBOutlet weak var YAxis: WKInterfaceLabel!
     @IBOutlet weak var ZAxis: WKInterfaceLabel!
+    @IBOutlet weak var XRotAxis: WKInterfaceLabel!
+    @IBOutlet weak var YRotAxis: WKInterfaceLabel!
+    @IBOutlet weak var ZRotAxis: WKInterfaceLabel!
     let motion = CMMotionManager()
     
     func startAccelerometers() {
@@ -21,7 +24,15 @@ class InterfaceController: WKInterfaceController {
         if self.motion.isAccelerometerAvailable {
             self.motion.accelerometerUpdateInterval = 1.0 / 60.0  // 60 Hz
             self.motion.startAccelerometerUpdates()
-            
+        }
+        if self.motion.isGyroAvailable{
+            self.motion.gyroUpdateInterval = 1.0 / 60.0 //60 Hz
+            self.motion.startGyroUpdates()
+        }
+        if self.motion.isMagnetometerAvailable{
+            self.motion.magnetometerUpdateInterval = 1.0 / 60.0 //60 Hz
+            self.motion.startMagnetometerUpdates()
+        }
             // Configure a timer to fetch the data.
             let timer = Timer(fire: Date(), interval: (1.0/2.0),
                                repeats: true, block: { (timer) in
@@ -36,11 +47,20 @@ class InterfaceController: WKInterfaceController {
                                     self.YAxis.setText("Y: "+y)
                                     self.ZAxis.setText("Z: "+z)
                                 }
+                                if let data = self.motion.gyroData {
+                                    let x = String( format: "%.4f", data.rotationRate.x)
+                                    let y = String(format: "%.4f", data.rotationRate.y)
+                                    let z = String(format: "%.4f", data.rotationRate.z)
+                                    
+                                    self.XRotAxis.setText("X: "+x)
+                                    self.YRotAxis.setText("Y: "+y)
+                                    self.ZRotAxis.setText("Z: "+z)
+                                }
             })
             
             // Add the timer to the current run loop.
             RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
-        }
+        
     }
     
     override func awake(withContext context: Any?) {
