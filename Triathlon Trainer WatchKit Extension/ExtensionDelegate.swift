@@ -8,11 +8,33 @@
 
 import WatchKit
 import CoreMotion
+import WatchConnectivity
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    
+    
+    var sensorCollect : SensorCollectTriTrain!
+    var infoPlist : NSDictionary!
+    let session = WCSession.default
+    let sr = CMSensorRecorder()
+    let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
+
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
+        infoPlist = NSDictionary(contentsOfFile: path)
+        
+        // wake up session to phone
+        session.delegate = self
+        session.activate()
+        
+        sensorCollect = SensorCollectTriTrain(extensionDelegate: self)
+        
     }
 
     func applicationDidBecomeActive() {
