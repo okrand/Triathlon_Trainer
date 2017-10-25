@@ -36,12 +36,12 @@ class InterfaceController: WKInterfaceController {
     
     let motion = CMMotionManager()
     var timer: Timer!
-    var startTime: Date
-    var endTime: Date
+    var startTime: Date!
+    var endTime: Date!
     var latestDate = Date.distantPast
     var recording = false
     @IBAction func pressButton(){
-        if !recording{
+        if recording == false {
             startTime = Date()
             recording = true
             let recorder = CMSensorRecorder()
