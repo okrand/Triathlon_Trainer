@@ -9,6 +9,7 @@
 import WatchKit
 import CoreMotion
 import Foundation
+import DateComponents
 
 extension CMSensorDataList: Sequence {
     public func makeIterator() -> NSFastEnumerationIterator {
@@ -20,6 +21,7 @@ class InterfaceController: WKInterfaceController {
     let extensionDelegate = WKExtension.shared().delegate as! ExtensionDelegate
     
     @IBOutlet weak var theButton: WKInterfaceButton!
+    @IBOutlet weak var Tim: WKInterfaceTimer!
     @IBOutlet weak var XAxis: WKInterfaceLabel!
     @IBOutlet weak var YAxis: WKInterfaceLabel!
     @IBOutlet weak var ZAxis: WKInterfaceLabel!
@@ -49,7 +51,11 @@ class InterfaceController: WKInterfaceController {
             recording = true
             let recorder = CMSensorRecorder()
             recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
+            updateButtonText(newText: "Recording")
             recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
+            let timerEnd = Date(timeIntervalSinceNow: minute)
+            Tim.setDate(timerEnd)
+            Tim.start()
         }
         else {
             endTime = Date()

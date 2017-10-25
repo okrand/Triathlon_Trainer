@@ -16,9 +16,10 @@
                     <items>
                         <button width="1" alignment="left" title="Button" id="Oc1-5h-C3b">
                             <connections>
-                                <action selector="pressButton" destination="AgC-eL-Hgc" id="EGm-88-FZJ"/>
+                                <action selector="pressButtonWithNewbool:" destination="AgC-eL-Hgc" id="flY-a4-Hbj"/>
                             </connections>
                         </button>
+                        <timer width="134" height="27" alignment="left" id="Oe1-NR-XEt"/>
                         <label width="154" height="40" alignment="left" text="ACCELEROMETER" id="zx0-WI-mdG"/>
                         <label alignment="left" text="X: " id="wN9-WE-OP6" userLabel="XAxis">
                             <accessibilityTraits key="accessibilityTraits" staticText="YES" updatesFrequently="YES"/>
@@ -41,6 +42,7 @@
                     </items>
                     <connections>
                         <outlet property="HMot" destination="8ik-5W-OH6" id="iai-28-y3B"/>
+                        <outlet property="Tim" destination="Oe1-NR-XEt" id="bhj-gR-TiY"/>
                         <outlet property="XAxis" destination="wN9-WE-OP6" id="LbS-10-0BX"/>
                         <outlet property="XMagAxis" destination="hcV-oH-v77" id="nlw-Qg-dRl"/>
                         <outlet property="XMotAxis" destination="P6q-Da-BAS" id="CaU-CN-Glx"/>
@@ -57,7 +59,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="219" y="344"/>
+            <point key="canvasLocation" x="219" y="348"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
