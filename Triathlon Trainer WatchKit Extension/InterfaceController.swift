@@ -36,23 +36,29 @@ class InterfaceController: WKInterfaceController {
     
     let motion = CMMotionManager()
     var timer: Timer!
+    var recordTimer: Timer!
     var startTime: Date!
     var endTime: Date!
     var latestDate = Date.distantPast
     var recording = false
+    var recordCounter = 60
     @IBAction func pressButton(){
         if recording == false {
             startTime = Date()
             recording = true
             let recorder = CMSensorRecorder()
             recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
-            updateButtonText(newText: "Recording for 1 min")
+            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: false)
         }
         else {
             endTime = Date()
             recording = false
             updateButtonText(newText: "Start Recording")
         }
+    }
+    func updateCounter(){
+        recordCounter -= 1
+        updateButtonText(newText: String(recordCounter))
     }
     
     func startAccelerometers() {
