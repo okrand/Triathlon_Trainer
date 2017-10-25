@@ -42,13 +42,14 @@ class InterfaceController: WKInterfaceController {
     var latestDate = Date.distantPast
     var recording = false
     var recordCounter = 60
-    @IBAction func pressButton(){
+    @IBAction func pressButton(newbool: Bool = false){
+        recording = newbool
         if recording == false {
             startTime = Date()
             recording = true
             let recorder = CMSensorRecorder()
             recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
-            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: false)
+            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
         }
         else {
             endTime = Date()
@@ -57,8 +58,13 @@ class InterfaceController: WKInterfaceController {
         }
     }
     func updateCounter(){
-        recordCounter -= 1
-        updateButtonText(newText: String(recordCounter))
+        if recordCounter > 0{
+            recordCounter -= 1
+            updateButtonText(newText: String(recordCounter))
+        }
+        else{
+            pressButton(newbool: false)
+        }
     }
     
     func startAccelerometers() {
