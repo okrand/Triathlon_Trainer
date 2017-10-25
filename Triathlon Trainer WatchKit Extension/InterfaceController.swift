@@ -33,19 +33,31 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var YMotAxis: WKInterfaceLabel!
     @IBOutlet weak var ZMotAxis: WKInterfaceLabel!
     @IBOutlet weak var HMot: WKInterfaceLabel!
-    @IBAction func pressButton(){
-        updateButtonText(newText: "Stop Recording")
-        
-    }
+    
     let motion = CMMotionManager()
     var timer: Timer!
+    var startTime: Date
+    var endTime: Date
     var latestDate = Date.distantPast
+    var recording = false
+    @IBAction func pressButton(){
+        if !recording{
+            startTime = Date()
+            recording = true
+            let recorder = CMSensorRecorder()
+            recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
+            updateButtonText(newText: "Recording for 1 min")
+        }
+        else {
+            endTime = Date()
+            recording = false
+            updateButtonText(newText: "Start Recording")
+        }
+    }
     
     func startAccelerometers() {
         if CMSensorRecorder.isAccelerometerRecordingAvailable() {
             updateButtonText(newText: "Start Recording")
-            let recorder = CMSensorRecorder()
-            recorder.recordAccelerometer(forDuration: 120)  // Record for 2 minutes
         }
         else{
             updateButtonText(newText: "Not Ready!!")
