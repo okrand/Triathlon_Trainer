@@ -52,12 +52,15 @@ class InterfaceController: WKInterfaceController {
             let recorder = CMSensorRecorder()
             recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
             updateButtonText(newText: "Recording")
-            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: true)
+            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: false)
             let timerEnd = Date(timeIntervalSinceNow: 60)
+            startTime = Date()
             Tim.setDate(timerEnd)
             Tim.start()
         }
         else {
+            endTime = Date()
+            Tim.stop()
             endTime = Date()
             recording = false
             updateButtonText(newText: "Start Recording")
@@ -66,10 +69,10 @@ class InterfaceController: WKInterfaceController {
     func updateCounter(){
         if recordCounter > 0{
             recordCounter -= 1
-            updateButtonText(newText: String(recordCounter))
         }
         else{
             pressButton(newbool: false)
+            
         }
     }
     

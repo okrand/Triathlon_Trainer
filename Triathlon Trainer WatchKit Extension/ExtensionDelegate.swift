@@ -15,8 +15,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         
     }
     
-    
-    
     var sensorCollect : SensorCollectTriTrain!
     var infoPlist : NSDictionary!
     let session = WCSession.default
