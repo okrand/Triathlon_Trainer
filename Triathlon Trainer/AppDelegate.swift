@@ -53,17 +53,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         for x in dict{
             print (x.key + "," + x.value)
         }
-        let file = "file.csv" //this is the file. we will write to and read from it
+        let fileName = "Test"
+        let dir = try? FileManager.default.url(for: .documentDirectory,
+                                               in: .userDomainMask, appropriateFor: nil, create: true)
         
-        let text = "some text" //just a text
-        
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(file)
-            //writing
+        // If the directory was found, we write a file to it and read it back
+        if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("txt") {
+            
+            // Write to the file named Test
+            let outString = "Write this text to the file"
             do {
-                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+                try outString.write(to: fileURL, atomically: true, encoding: .utf8)
+            } catch {
+                print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
             }
-            catch {print("Couldn't write to file")}
+            
+            // Then reading it back from the file
+            var inString = ""
+            do {
+                inString = try String(contentsOf: fileURL)
+            } catch {
+                print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+            }
+            print("Read from the file: \(inString)")
         }
     }
     

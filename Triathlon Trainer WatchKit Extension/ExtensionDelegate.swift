@@ -19,14 +19,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     var recordCounter = 60
     var startTime: Date!
     var endTime: Date!
-    let recorder = CMSensorRecorder()
-    let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
     let session = WCSession.default
     
     func startRecording(){
         startTime = Date()
-        //recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
-        //recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: false)
     }
     
     func stopRecording(dict: [String: String]) throws {
@@ -37,15 +33,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         catch {print("No Session")}
         
         
-    }
-    
-    func updateCounter(){
-        if recordCounter > 0{
-            recordCounter -= 1
-        }
-        else{
-            //IC.pressButton(newbool: false)
-        }
     }
     
     func applicationDidFinishLaunching() {
