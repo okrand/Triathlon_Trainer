@@ -48,21 +48,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                           didReceiveApplicationContext applicationContext: [String : String]){
         dict = applicationContext
         print("Got Dictionary")
-        let times = Array(dict.keys)
-        let values = Array(dict.values)
+        var outString = ""
+        var fname = ""
         for x in dict{
+            outString += x.key + "," + x.value + "\n"
             print (x.key + "," + x.value)
+            fname = x.key
         }
-        let fileName = "Test"
+        
+        let fileName = fname
         let dir = try? FileManager.default.url(for: .documentDirectory,
                                                in: .userDomainMask, appropriateFor: nil, create: true)
         
         // If the directory was found, we write a file to it and read it back
-        if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("txt") {
+        if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("csv") {
             print(fileURL)
             
             // Write to the file named Test
-            let outString = "Write this text to the file"
             do {
                 try outString.write(to: fileURL, atomically: true, encoding: .utf8)
             } catch {
