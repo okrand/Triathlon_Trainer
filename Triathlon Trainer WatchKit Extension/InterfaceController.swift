@@ -40,13 +40,14 @@ class InterfaceController: WKInterfaceController {
     var timer: Timer!
     var recordTimer: Timer!
     var latestDate = Date.distantPast
-    var recording = false
+    var recording: Bool! = false
     var dict = [String: String]()
     
     
     @IBAction func pressButton(){
         if recording == false {
             recording = true
+            updateButtonText(newText: "This should disappear immediately")
             extensionDelegate.startRecording()
             updateButtonText(newText: "Stop Recording")
             let timerEnd = Date(timeIntervalSinceNow: 60)
