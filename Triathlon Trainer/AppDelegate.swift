@@ -9,51 +9,53 @@
 import UIKit
 import CoreMotion
 import WatchConnectivity
-import os
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        <#code#>
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        <#code#>
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        <#code#>
+    }
+    
 
     var window: UIWindow?
     var dict: [String: String] = [:]
     
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("App started")
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
         return true
     }
     
     func session(_ session: WCSession,
                           didReceiveApplicationContext applicationContext: [String : String]){
         dict = applicationContext
-        if store(dictionary: dict, in: "watchData", at: "Accel"){
-            print ("Store successful")
+        print("Got Dictionary")
+        let file = "file.csv" //this is the file. we will write to and read from it
+        
+        let text = "some text" //just a text
+        
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent(file)
+            //writing
+            do {
+                try text.write(to: fileURL, atomically: false, encoding: .utf8)
+            }
+            catch {/* error handling here */}
         }
-    }
-    
-    func store(dictionary: Dictionary<String, String>, in fileName: String, at directory: String) -> Bool {
-        let fileExtension = "plist"
-        let directoryURL = create(directory:directory)
-        os_log("directory created")
-        do {
-            let data = try PropertyListSerialization.data(fromPropertyList: dictionary, format: .xml, options: 0)
-            try data.write(to: directoryURL.appendingPathComponent(fileName).appendingPathExtension(fileExtension))
-            return true
-        }  catch {
-            print(error)
-            os_log("Failed to write to file")
-            return false
-        }
-    }
-    
-    func create(directory: String) -> URL {
-        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let directoryURL = documentsDirectory.appendingPathComponent(directory)
-        do {
-            try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
-        } catch let error as NSError {
-            fatalError("Error creating directory: \(error.localizedDescription)")
-        }
-        return directoryURL
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
