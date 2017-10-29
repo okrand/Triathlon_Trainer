@@ -9,6 +9,7 @@
 import UIKit
 import CoreMotion
 import WatchConnectivity
+import os
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,21 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func session(_ session: WCSession,
                           didReceiveApplicationContext applicationContext: [String : String]){
         dict = applicationContext
-        print(create(directory: "LALALA"))
-        if store(dictionary: dict, in: "watchData", at: "LALALA"){
+        if store(dictionary: dict, in: "watchData", at: "Accel"){
             print ("Store successful")
         }
     }
     
     func store(dictionary: Dictionary<String, String>, in fileName: String, at directory: String) -> Bool {
-        let fileExtension = "txt"
+        let fileExtension = "plist"
         let directoryURL = create(directory:directory)
+        os_log("directory created")
         do {
             let data = try PropertyListSerialization.data(fromPropertyList: dictionary, format: .xml, options: 0)
             try data.write(to: directoryURL.appendingPathComponent(fileName).appendingPathExtension(fileExtension))
             return true
         }  catch {
             print(error)
+            os_log("Failed to write to file")
             return false
         }
     }
@@ -46,7 +48,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func create(directory: String) -> URL {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let directoryURL = documentsDirectory.appendingPathComponent(directory)
-        
         do {
             try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
         } catch let error as NSError {

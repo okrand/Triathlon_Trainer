@@ -9,6 +9,7 @@
 import WatchKit
 import CoreMotion
 import Foundation
+import os
 
 
 extension CMSensorDataList: Sequence {
@@ -43,11 +44,10 @@ class InterfaceController: WKInterfaceController {
     var recording: Bool! = false
     var dict = [String: String]()
     
-    
     @IBAction func pressButton(){
         if recording == false {
+            os_log("startRecording")
             recording = true
-            updateButtonText(newText: "This should disappear immediately")
             extensionDelegate.startRecording()
             updateButtonText(newText: "Stop Recording")
             let timerEnd = Date(timeIntervalSinceNow: 60)
@@ -55,6 +55,7 @@ class InterfaceController: WKInterfaceController {
             Tim.start()
         }
         else {
+            os_log("stopRecording")
             do{try extensionDelegate.stopRecording(dict: dict)
             }
             catch {print("Stop Failed")}
@@ -145,7 +146,7 @@ class InterfaceController: WKInterfaceController {
                                         let rec: String = Ax + "," + Ay + "," + Az + " \n"
                                         let currentTime = String(describing: Date())
                                         self.dict[currentTime] = rec
-                                    }
+                                                                            }
                                 }
             })
 

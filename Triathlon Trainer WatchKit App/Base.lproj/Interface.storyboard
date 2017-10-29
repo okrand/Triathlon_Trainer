@@ -16,7 +16,7 @@
                     <items>
                         <button width="1" alignment="left" title="Button" id="Oc1-5h-C3b">
                             <connections>
-                                <action selector="pressButtonWithNewbool:" destination="AgC-eL-Hgc" id="flY-a4-Hbj"/>
+                                <action selector="pressButton" destination="AgC-eL-Hgc" id="8Km-6d-5QT"/>
                             </connections>
                         </button>
                         <timer width="134" height="27" alignment="left" id="Oe1-NR-XEt"/>
