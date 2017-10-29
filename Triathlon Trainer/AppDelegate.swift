@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         
         // If the directory was found, we write a file to it and read it back
         if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("txt") {
+            print(fileURL)
             
             // Write to the file named Test
             let outString = "Write this text to the file"
@@ -72,11 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             var inString = ""
             do {
                 inString = try String(contentsOf: fileURL)
+                print(inString)
             } catch {
                 print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
             }
             print("Read from the file: \(inString)")
         }
+        else {print("Couldn't create fileURL")}
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
