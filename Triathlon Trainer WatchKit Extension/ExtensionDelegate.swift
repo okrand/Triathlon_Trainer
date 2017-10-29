@@ -15,23 +15,47 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         
     }
     
-    var sensorCollect : SensorCollectTriTrain!
-    var infoPlist : NSDictionary!
-    let session = WCSession.default
-    let sr = CMSensorRecorder()
+    var recordTimer: Timer!
+    var recordCounter = 60
+    var startTime: Date!
+    var endTime: Date!
+    let recorder = CMSensorRecorder()
     let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
-
+    let session = WCSession.default
+    
+    func startRecording(){
+        startTime = Date()
+        //recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
+        //recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: false)
+    }
+    
+    func stopRecording(dict: [String: String]) throws {
+        endTime = Date()
+        do {
+       try session.updateApplicationContext(dict)
+        }
+        catch {print("No Session")}
+        
+        
+    }
+    
+    func updateCounter(){
+        if recordCounter > 0{
+            recordCounter -= 1
+        }
+        else{
+            //IC.pressButton(newbool: false)
+        }
+    }
     
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
-        let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
-        infoPlist = NSDictionary(contentsOfFile: path)
+        //let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
+        //infoPlist = NSDictionary(contentsOfFile: path)
         
         // wake up session to phone
         session.delegate = self
         session.activate()
-        
-        sensorCollect = SensorCollectTriTrain(extensionDelegate: self)
         
     }
 

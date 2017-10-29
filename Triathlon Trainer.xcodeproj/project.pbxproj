@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		496EF6B11F9F910F00485418 /* SensorCollectTriTrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496EF6B01F9F910F00485418 /* SensorCollectTriTrain.swift */; };
 		496EF6B31F9FA0B300485418 /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496EF6B21F9FA0B300485418 /* SensorMoment.swift */; };
 		49FB09351F814F9A00BACA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09341F814F9A00BACA3B /* AppDelegate.swift */; };
 		49FB09371F814F9A00BACA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09361F814F9A00BACA3B /* ViewController.swift */; };
@@ -84,7 +83,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		496EF6B01F9F910F00485418 /* SensorCollectTriTrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorCollectTriTrain.swift; sourceTree = "<group>"; };
 		496EF6B21F9FA0B300485418 /* SensorMoment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMoment.swift; sourceTree = "<group>"; };
 		49FB09311F814F9A00BACA3B /* Triathlon Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Triathlon Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FB09341F814F9A00BACA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -215,7 +213,6 @@
 				49FB096F1F814F9A00BACA3B /* InterfaceController.swift */,
 				49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */,
 				496EF6B21F9FA0B300485418 /* SensorMoment.swift */,
-				496EF6B01F9F910F00485418 /* SensorCollectTriTrain.swift */,
 				49FB09731F814F9A00BACA3B /* NotificationController.swift */,
 				49FB09751F814F9A00BACA3B /* Assets.xcassets */,
 				49FB09771F814F9A00BACA3B /* Info.plist */,
@@ -466,7 +463,6 @@
 				49FB09721F814F9A00BACA3B /* ExtensionDelegate.swift in Sources */,
 				49FB09701F814F9A00BACA3B /* InterfaceController.swift in Sources */,
 				496EF6B31F9FA0B300485418 /* SensorMoment.swift in Sources */,
-				496EF6B11F9F910F00485418 /* SensorCollectTriTrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

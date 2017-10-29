@@ -39,40 +39,28 @@ class InterfaceController: WKInterfaceController {
     let motion = CMMotionManager()
     var timer: Timer!
     var recordTimer: Timer!
-    var startTime: Date!
-    var endTime: Date!
     var latestDate = Date.distantPast
     var recording = false
-    var recordCounter = 60
+    var dict = [String: String]()
+    
+    
     @IBAction func pressButton(newbool: Bool = false){
         recording = newbool
         if recording == false {
-            startTime = Date()
             recording = true
-            let recorder = CMSensorRecorder()
-            recorder.recordAccelerometer(forDuration: 60)  // Record for 1 minutes
-            updateButtonText(newText: "Recording")
-            recordTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("updateCounter"), userInfo: nil, repeats: false)
+            extensionDelegate.startRecording()
+            updateButtonText(newText: "Stop Recording")
             let timerEnd = Date(timeIntervalSinceNow: 60)
-            startTime = Date()
             Tim.setDate(timerEnd)
             Tim.start()
         }
         else {
-            endTime = Date()
+            do{try extensionDelegate.stopRecording(dict: dict)
+            }
+            catch {print("Stop Failed")}
             Tim.stop()
-            endTime = Date()
             recording = false
             updateButtonText(newText: "Start Recording")
-        }
-    }
-    func updateCounter(){
-        if recordCounter > 0{
-            recordCounter -= 1
-        }
-        else{
-            pressButton(newbool: false)
-            
         }
     }
     
@@ -143,6 +131,7 @@ class InterfaceController: WKInterfaceController {
                                     if #available(watchOSApplicationExtension 4.0, *) {
                                         H = String(format: "%.4f", odata.heading)
                                     }
+                                    
                                     self.XMotAxis.setText("Ax: " + Ax)
                                     self.YMotAxis.setText("Ay: " + Ay)
                                     self.ZMotAxis.setText("Az: " + Az)
@@ -150,6 +139,13 @@ class InterfaceController: WKInterfaceController {
                                     self.XRotAxis.setText("X: "+Rx)
                                     self.YRotAxis.setText("Y: "+Ry)
                                     self.ZRotAxis.setText("Z: "+Rz)
+                                
+                                    //If recording, add values to the dict
+                                    if self.recording == true{
+                                        let rec: String = Ax + "," + Ay + "," + Az + " \n"
+                                        let currentTime = String(describing: Date())
+                                        self.dict[currentTime] = rec
+                                    }
                                 }
             })
 

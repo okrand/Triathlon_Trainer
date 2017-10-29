@@ -8,17 +8,53 @@
 
 import UIKit
 import CoreMotion
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var dict: [String: String] = [:]
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
-
+    
+    func session(_ session: WCSession,
+                          didReceiveApplicationContext applicationContext: [String : String]){
+        dict = applicationContext
+        print(create(directory: "LALALA"))
+        if store(dictionary: dict, in: "watchData", at: "LALALA"){
+            print ("Store successful")
+        }
+    }
+    
+    func store(dictionary: Dictionary<String, String>, in fileName: String, at directory: String) -> Bool {
+        let fileExtension = "txt"
+        let directoryURL = create(directory:directory)
+        do {
+            let data = try PropertyListSerialization.data(fromPropertyList: dictionary, format: .xml, options: 0)
+            try data.write(to: directoryURL.appendingPathComponent(fileName).appendingPathExtension(fileExtension))
+            return true
+        }  catch {
+            print(error)
+            return false
+        }
+    }
+    
+    func create(directory: String) -> URL {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryURL = documentsDirectory.appendingPathComponent(directory)
+        
+        do {
+            try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            fatalError("Error creating directory: \(error.localizedDescription)")
+        }
+        return directoryURL
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
