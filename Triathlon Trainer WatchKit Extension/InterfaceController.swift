@@ -44,8 +44,7 @@ class InterfaceController: WKInterfaceController {
     var dict = [String: String]()
     
     
-    @IBAction func pressButton(newbool: Bool = false){
-        recording = newbool
+    @IBAction func pressButton(){
         if recording == false {
             recording = true
             extensionDelegate.startRecording()
