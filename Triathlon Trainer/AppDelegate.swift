@@ -13,15 +13,15 @@ import WatchConnectivity
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        <#code#>
+        print ("session active")
     }
     
     func sessionDidBecomeInactive(_ session: WCSession) {
-        <#code#>
+        print ("Session Inactive")
     }
     
     func sessionDidDeactivate(_ session: WCSession) {
-        <#code#>
+        
     }
     
 
@@ -36,6 +36,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             let session = WCSession.default
             session.delegate = self
             session.activate()
+            print("WCSession started")
+        }
+        else{
+            print("WCSession not supported")
         }
         return true
     }
@@ -44,6 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                           didReceiveApplicationContext applicationContext: [String : String]){
         dict = applicationContext
         print("Got Dictionary")
+        let times = Array(dict.keys)
+        let values = Array(dict.values)
+        for x in dict{
+            print (x.key + "," + x.value)
+        }
         let file = "file.csv" //this is the file. we will write to and read from it
         
         let text = "some text" //just a text
@@ -54,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             do {
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
             }
-            catch {/* error handling here */}
+            catch {print("Couldn't write to file")}
         }
     }
     
