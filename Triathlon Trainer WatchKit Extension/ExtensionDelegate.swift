@@ -11,19 +11,24 @@ import CoreMotion
 import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        
-    }
     
     let motion = CMMotionManager()
     var timer: Timer!
+    var dict = [String: String]()
+    var recording: Bool! = false
     var recordTimer: Timer!
     var recordCounter = 60
     var startTime: Date!
     var endTime: Date!
     let session = WCSession.default
-    var dict = [String: String]()
-    var recording: Bool! = false
+    
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    
+    
     
     func startRecording(){
         startTime = Date()
@@ -43,16 +48,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                             let Ry = String(format: "%.4f", odata.rotationRate.y)
                             let Rz = String(format: "%.4f", odata.rotationRate.z)
                             
-                            
-                            /*
-                            self.XMotAxis.setText("Ax: " + Ax)
-                            self.YMotAxis.setText("Ay: " + Ay)
-                            self.ZMotAxis.setText("Az: " + Az)
-                            self.HMot.setText("H: " + H)
-                            self.XRotAxis.setText("X: "+Rx)
-                            self.YRotAxis.setText("Y: "+Ry)
-                            self.ZRotAxis.setText("Z: "+Rz)
-                             */
                             
                             //If recording, add values to the dict
                             if self.recording == true{
@@ -75,6 +70,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
        try session.updateApplicationContext(self.dict)
         }
         catch {print("No Session")}
+        self.dict.removeAll()
         
         
     }
