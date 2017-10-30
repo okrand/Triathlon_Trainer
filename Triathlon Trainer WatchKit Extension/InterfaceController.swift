@@ -49,9 +49,6 @@ class InterfaceController: WKInterfaceController {
             recording = true
             extensionDelegate.startRecording()
             updateButtonText(newText: "Stop Recording")
-            let timerEnd = Date(timeIntervalSinceNow: 60)
-            Tim.setDate(timerEnd)
-            Tim.start()
         }
         else {
             print("stopRecording")

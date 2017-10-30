@@ -10,6 +10,13 @@ import WatchKit
 import CoreMotion
 import WatchConnectivity
 
+extension CMSensorDataList: Sequence {
+    public func makeIterator() -> NSFastEnumerationIterator {
+        return NSFastEnumerationIterator(self)
+    }
+}
+
+
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     let motion = CMMotionManager()
@@ -27,11 +34,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         
     }
     
-    
-    
-    
     func startRecording(){
         startTime = Date()
+        recording = true
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
             self.motion.startDeviceMotionUpdates()
