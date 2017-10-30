@@ -36,12 +36,12 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var ZMotAxis: WKInterfaceLabel!
     @IBOutlet weak var HMot: WKInterfaceLabel!
     
-    let motion = CMMotionManager()
-    var timer: Timer!
+    
+    
     var recordTimer: Timer!
     var latestDate = Date.distantPast
     var recording: Bool! = false
-    var dict = [String: String]()
+   
     
     @IBAction func pressButton(){
         if recording == false {
@@ -55,7 +55,7 @@ class InterfaceController: WKInterfaceController {
         }
         else {
             print("stopRecording")
-            do{try extensionDelegate.stopRecording(dict: dict)
+            do{try extensionDelegate.stopRecording()
             }
             catch {print("Stop Failed")}
             Tim.stop()
@@ -64,13 +64,14 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    func startAccelerometers() {
+    func startButtons() {
         if CMSensorRecorder.isAccelerometerRecordingAvailable() {
             updateButtonText(newText: "Start Recording")
         }
         else{
             updateButtonText(newText: "Not Ready!!")
         }
+        /*
         // Make sure the accelerometer hardware is available.
         //if self.motion.isAccelerometerAvailable {
        //     self.motion.accelerometerUpdateInterval = 1.0 / 60.0  // 60 Hz
@@ -152,7 +153,7 @@ class InterfaceController: WKInterfaceController {
         
             // Add the timer to the current run loop.
             RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
-        
+        */
     }
     
     func updateButtonText(newText: String){
@@ -163,7 +164,7 @@ class InterfaceController: WKInterfaceController {
         super.awake(withContext: context)
         
         // Configure interface objects here.
-        startAccelerometers()
+        startButtons()
     }
     
     override func willActivate() {

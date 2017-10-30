@@ -15,20 +15,64 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         
     }
     
+    let motion = CMMotionManager()
+    var timer: Timer!
     var recordTimer: Timer!
     var recordCounter = 60
     var startTime: Date!
     var endTime: Date!
     let session = WCSession.default
+    var dict = [String: String]()
+    var recording: Bool! = false
     
     func startRecording(){
         startTime = Date()
+        if self.motion.isDeviceMotionAvailable{
+            self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
+            self.motion.startDeviceMotionUpdates()
+        }
+        // Configure a timer to fetch the data.
+        timer = Timer(fire: Date(), interval: (1.0/60.0),
+                      repeats: true, block: { (timer) in
+                        
+                        if let odata = self.motion.deviceMotion{
+                            let Ax = String(format: "%.4f", odata.userAcceleration.x)
+                            let Ay = String(format: "%.4f", odata.userAcceleration.y)
+                            let Az = String(format: "%.4f", odata.userAcceleration.z)
+                            let Rx = String(format: "%.4f", odata.rotationRate.x)
+                            let Ry = String(format: "%.4f", odata.rotationRate.y)
+                            let Rz = String(format: "%.4f", odata.rotationRate.z)
+                            
+                            
+                            /*
+                            self.XMotAxis.setText("Ax: " + Ax)
+                            self.YMotAxis.setText("Ay: " + Ay)
+                            self.ZMotAxis.setText("Az: " + Az)
+                            self.HMot.setText("H: " + H)
+                            self.XRotAxis.setText("X: "+Rx)
+                            self.YRotAxis.setText("Y: "+Ry)
+                            self.ZRotAxis.setText("Z: "+Rz)
+                             */
+                            
+                            //If recording, add values to the dict
+                            if self.recording == true{
+                                let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
+                                let currentTime = String(describing: Date())
+                                self.dict[currentTime] = rec
+                            }
+                        }
+        })
+        
+        
+        // Add the timer to the current run loop.
+        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
     }
     
-    func stopRecording(dict: [String: String]) throws {
+    func stopRecording() throws {
+        self.recording = false
         endTime = Date()
         do {
-       try session.updateApplicationContext(dict)
+       try session.updateApplicationContext(self.dict)
         }
         catch {print("No Session")}
         
