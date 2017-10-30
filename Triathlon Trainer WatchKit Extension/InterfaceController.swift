@@ -73,23 +73,23 @@ class InterfaceController: WKInterfaceController {
         }
         // Make sure the accelerometer hardware is available.
         if self.motion.isAccelerometerAvailable {
-            self.motion.accelerometerUpdateInterval = 1.0 / 60.0  // 30 Hz
+            self.motion.accelerometerUpdateInterval = 1.0 / 60.0  // 60 Hz
             self.motion.startAccelerometerUpdates()
         }
         if self.motion.isGyroAvailable{
-            self.motion.gyroUpdateInterval = 1.0 / 60.0 //30 Hz
+            self.motion.gyroUpdateInterval = 1.0 / 60.0 //60 Hz
             self.motion.startGyroUpdates()
         }
         if self.motion.isMagnetometerAvailable{
-            self.motion.magnetometerUpdateInterval = 1.0 / 60.0 //30 Hz
+            self.motion.magnetometerUpdateInterval = 1.0 / 60.0 //60 Hz
             self.motion.startMagnetometerUpdates()
         }
         if self.motion.isDeviceMotionAvailable{
-            self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 30 Hz
+            self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
             self.motion.startDeviceMotionUpdates()
         }
             // Configure a timer to fetch the data.
-            timer = Timer(fire: Date(), interval: (1.0/60.0),
+            timer = Timer(fire: Date(), interval: (1.0/60.0),// 60 hz
                                repeats: true, block: { (timer) in
                                 // Get the accelerometer data.
                                 if let adata = self.motion.accelerometerData {
@@ -142,7 +142,7 @@ class InterfaceController: WKInterfaceController {
                                 
                                     //If recording, add values to the dict
                                     if self.recording == true{
-                                        let rec: String = Ax + "," + Ay + "," + Az + " \n"
+                                        let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
                                         let currentTime = String(describing: Date())
                                         self.dict[currentTime] = rec
                                     }
