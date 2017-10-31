@@ -11,11 +11,7 @@ import CoreMotion
 import Foundation
 
 
-extension CMSensorDataList: Sequence {
-    public func makeIterator() -> NSFastEnumerationIterator {
-        return NSFastEnumerationIterator(self)
-    }
-}
+
 
 class InterfaceController: WKInterfaceController {
     let extensionDelegate = WKExtension.shared().delegate as! ExtensionDelegate
