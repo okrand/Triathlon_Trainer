@@ -10,6 +10,7 @@ import WatchKit
 import CoreMotion
 import WatchConnectivity
 
+
 extension CMSensorDataList: Sequence {
     public func makeIterator() -> NSFastEnumerationIterator {
         return NSFastEnumerationIterator(self)
@@ -28,6 +29,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     var startTime: Date!
     var endTime: Date!
     let session = WCSession.default
+    let dateformat = DateFormatter()
+    
     
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -57,7 +60,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                             //If recording, add values to the dict
                             if self.recording == true{
                                 let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
-                                let currentTime = String(describing: Date())
+                                self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+                                let currentTime = self.dateformat.string(from: Date())
                                 self.dict[currentTime] = rec
                             }
                         }
