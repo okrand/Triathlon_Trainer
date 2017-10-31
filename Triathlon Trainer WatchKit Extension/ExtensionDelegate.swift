@@ -76,7 +76,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
         catch {print("No Session")}
         self.dict.removeAll()
-        
+        self.motion.stopDeviceMotionUpdates()
         
     }
     
