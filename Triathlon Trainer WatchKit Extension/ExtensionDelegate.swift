@@ -21,8 +21,10 @@ extension CMSensorDataList: Sequence {
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     let motion = CMMotionManager()
+    var datalist = CMSensorDataList()
     var timer: Timer!
     var dict = [String: String]()
+    var dict2 = [String: String]()
     var recording: Bool! = false
     var recordTimer: Timer!
     var recordCounter = 60
@@ -30,6 +32,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     var endTime: Date!
     let session = WCSession.default
     let dateformat = DateFormatter()
+    let recorder = CMSensorRecorder()
+    let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
     
     
     
@@ -43,6 +47,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
             self.motion.startDeviceMotionUpdates()
+        }
+        if haveAccelerometer{
+            print("recording")
+            recorder.recordAccelerometer(forDuration: 5 * 60)  // Record for 5 minutes
+            
         }
         // Configure a timer to fetch the data.
         timer = Timer(fire: Date(), interval: (1.0/60.0),
@@ -58,12 +67,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                             
                             
                             //If recording, add values to the dict
-                            if self.recording == true{
-                                let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
-                                self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
-                                let currentTime = self.dateformat.string(from: Date())
-                                self.dict[currentTime] = rec
-                            }
+                            let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
+                            self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+                            let currentTime = self.dateformat.string(from: Date())
+                            self.dict[currentTime] = rec
                         }
         })
         
@@ -75,8 +82,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     func stopRecording() throws {
         self.recording = false
         endTime = Date()
+        datalist = recorder.accelerometerData(from: startTime, to: endTime)!
+        for (index, data) in datalist.enumerated(){
+            dict2[String(index)] = String(data.acceleration.x)
+        }
         do {
-       try session.updateApplicationContext(self.dict)
+            try session.updateApplicationContext(self.dict)
         }
         catch {print("No Session")}
         self.dict.removeAll()

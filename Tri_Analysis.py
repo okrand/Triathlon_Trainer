@@ -11,7 +11,7 @@ with open('Bike.csv', 'r') as infile:
     
 sort_list = sorted(bike_list, key=lambda x: datetime.strptime(x[0], "%Y-%m-%d %H:%M:%S +%f"))
                    
-with open('sortedBike.csv', 'w') as outfile:
+with open('sortedBike1.csv', 'w') as outfile:
     write = csv.writer(outfile)
     for item in sort_list:
         write.writerow(item)

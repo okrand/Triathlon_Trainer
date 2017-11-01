@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         var outString = ""
         var fname = ""
         for x in dict{
-            outString += x.key + "," + x.value + "\n"
+            outString += x.key + "," + x.value
             print (x.key + "," + x.value)
             fname = x.key
         }
