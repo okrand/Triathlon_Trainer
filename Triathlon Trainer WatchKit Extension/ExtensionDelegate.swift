@@ -43,7 +43,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         startTime = Date()
         recording = true
         if self.motion.isDeviceMotionAvailable{
-            self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
+            self.motion.deviceMotionUpdateInterval = 1.0 / 30.0 // 30 Hz
             self.motion.startDeviceMotionUpdates(to: OperationQueue.current!) {deviceManager, error in
                 let Ax = String(format: "%.4f", (deviceManager?.userAcceleration.x)!)
                 let Ay = String(format: "%.4f", (deviceManager?.userAcceleration.y)!)
@@ -51,11 +51,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                 let Rx = String(format: "%.4f", (deviceManager?.rotationRate.x)!)
                 let Ry = String(format: "%.4f", (deviceManager?.rotationRate.y)!)
                 let Rz = String(format: "%.4f", (deviceManager?.rotationRate.z)!)
-                let time = self.startTime + (deviceManager?.timestamp)!
+                let time:String = String(format:"%f", (deviceManager?.timestamp)!)
                 let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
-                self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
-                let currentTime = self.dateformat.string(from: time)
-                self.dict[currentTime] = rec
+                //self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+                //let currentTime = self.dateformat.string(from: time)
+                self.dict[time] = rec
+                print(time + "," + rec)
             }
         }
         if haveAccelerometer{
