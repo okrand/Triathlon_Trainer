@@ -53,7 +53,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                 let Rz = String(format: "%.4f", (deviceManager?.rotationRate.z)!)
                 let time = self.startTime + (deviceManager?.timestamp)!
                 let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
-                //self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+                self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
                 let currentTime = self.dateformat.string(from: time)
                 self.dict[currentTime] = rec
             }
