@@ -86,9 +86,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         for (index, data) in datalist.enumerated(){
             let d = data as! CMRecordedAccelerometerData
             dict2[String(index)] = String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z)
+            print (String(index) + "," + String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z))
         }
         do {
-            try session.updateApplicationContext(self.dict2)
+            try session.updateApplicationContext(dict2)
+            print("dictionary sent")
         }
         catch {print("No Session")}
         self.dict.removeAll()
