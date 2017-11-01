@@ -35,8 +35,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     let recorder = CMSensorRecorder()
     let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
     
-    
-    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
@@ -46,15 +44,26 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         recording = true
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 60.0 // 60 Hz
-            self.motion.startDeviceMotionUpdates()
+            self.motion.startDeviceMotionUpdates(to: OperationQueue.current!) {deviceManager, error in
+                let Ax = String(format: "%.4f", (deviceManager?.userAcceleration.x)!)
+                let Ay = String(format: "%.4f", (deviceManager?.userAcceleration.y)!)
+                let Az = String(format: "%.4f", (deviceManager?.userAcceleration.z)!)
+                let Rx = String(format: "%.4f", (deviceManager?.rotationRate.x)!)
+                let Ry = String(format: "%.4f", (deviceManager?.rotationRate.y)!)
+                let Rz = String(format: "%.4f", (deviceManager?.rotationRate.z)!)
+                let rec: String = Ax + "," + Ay + "," + Az + "," + Rx + "," + Ry + "," + Rz + " \n"
+                self.dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+                let currentTime = self.dateformat.string(from: Date())
+                self.dict[currentTime] = rec
+            }
         }
         if haveAccelerometer{
-            print("recording")
-            recorder.recordAccelerometer(forDuration: 5 * 60)  // Record for 5 minutes
+            //print("recording")
+            //recorder.recordAccelerometer(forDuration: 5 * 60)  // Record for 5 minutes
             
         }
         // Configure a timer to fetch the data.
-        timer = Timer(fire: Date(), interval: (1.0/60.0),
+        /*timer = Timer(fire: Date(), interval: (1.0/60.0),
                       repeats: true, block: { (timer) in
                         
                         if let odata = self.motion.deviceMotion{
@@ -72,30 +81,33 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
                             let currentTime = self.dateformat.string(from: Date())
                             self.dict[currentTime] = rec
                         }
-        })
+        })*/
         
         
         // Add the timer to the current run loop.
-        RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+        //RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+        
+        
+        
+        
     }
     
     func stopRecording() throws {
         self.recording = false
         endTime = Date()
-        datalist = recorder.accelerometerData(from: startTime, to: endTime)!
+        /*datalist = recorder.accelerometerData(from: startTime, to: endTime)!
         for (index, data) in datalist.enumerated(){
             let d = data as! CMRecordedAccelerometerData
             dict2[String(index)] = String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z)
             print (String(index) + "," + String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z))
-        }
+        }*/
         do {
-            try session.updateApplicationContext(dict2)
+            try session.updateApplicationContext(dict)
             print("dictionary sent")
         }
         catch {print("No Session")}
         self.dict.removeAll()
         self.motion.stopDeviceMotionUpdates()
-        
     }
     
     func applicationDidFinishLaunching() {
