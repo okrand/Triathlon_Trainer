@@ -84,10 +84,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         endTime = Date()
         datalist = recorder.accelerometerData(from: startTime, to: endTime)!
         for (index, data) in datalist.enumerated(){
-            dict2[String(index)] = String(data.acceleration.x)
+            let d = data as! CMRecordedAccelerometerData
+            dict2[String(index)] = String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z)
         }
         do {
-            try session.updateApplicationContext(self.dict)
+            try session.updateApplicationContext(self.dict2)
         }
         catch {print("No Session")}
         self.dict.removeAll()
