@@ -3,13 +3,13 @@ require (graphics)
 
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')
 
-data<-read.csv("Time_Test.csv", header = FALSE)
+data<-read.csv("Time_Test3.csv", header = FALSE)
 
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]
 
 data<-data[order(data$V1),]
 
-write.csv(data, file="sortTime_Test.csv")
+write.csv(data, file="sortTime_Test3.csv")
 
 
 
