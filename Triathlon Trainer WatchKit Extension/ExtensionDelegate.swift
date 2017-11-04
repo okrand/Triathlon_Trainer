@@ -54,6 +54,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         dict.removeAll()
         startTime = Date()
         recording = true
+        healthStoreManager.start(workoutSession)
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 30.0 // 30 Hz
             self.motion.startDeviceMotionUpdates(to: OperationQueue.current!) {deviceManager, error in
@@ -108,6 +109,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     
     func stopRecording() throws {
         self.recording = false
+        healthStoreManager.end(workoutSession)
         self.motion.stopDeviceMotionUpdates()
         endTime = Date()
         /*datalist = recorder.accelerometerData(from: startTime, to: endTime)!
