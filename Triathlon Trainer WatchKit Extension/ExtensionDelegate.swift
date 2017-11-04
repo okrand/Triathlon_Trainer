@@ -43,7 +43,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
-        
+        print(error)
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
@@ -54,7 +54,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         dict.removeAll()
         startTime = Date()
         recording = true
-        healthStoreManager.start(workoutSession)
+        do{ try healthStoreManager.start(workoutSession)}
+        catch{print("Workout couldn't start")}
+        
+        print("workoutstarted")
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 30.0 // 30 Hz
             self.motion.startDeviceMotionUpdates(to: OperationQueue.current!) {deviceManager, error in
