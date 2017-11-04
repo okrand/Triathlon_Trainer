@@ -96,6 +96,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     func stopRecording() throws {
         self.recording = false
+        self.motion.stopDeviceMotionUpdates()
         endTime = Date()
         /*datalist = recorder.accelerometerData(from: startTime, to: endTime)!
         for (index, data) in datalist.enumerated(){
@@ -109,7 +110,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         }
         catch {print("No Session")}
         self.dict.removeAll()
-        self.motion.stopDeviceMotionUpdates()
     }
     
     func applicationDidFinishLaunching() {

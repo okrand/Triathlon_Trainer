@@ -49,14 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         dict = applicationContext
         print("Got Dictionary")
         var outString = ""
-        var fname = ""
         for x in dict{
             outString += x.key + "," + x.value
             print (x.key + "," + x.value)
-            fname = x.key
         }
-        
-        let fileName = fname
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+        let fileName = dateformat.string(from: Date())
         let dir = try? FileManager.default.url(for: .documentDirectory,
                                                in: .userDomainMask, appropriateFor: nil, create: true)
         
