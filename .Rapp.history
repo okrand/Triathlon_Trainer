@@ -1,5 +1,656 @@
 require(graphics)#
 library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph(doc, format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-c(fb_table$friend_count)#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+require(graphics)#
+library(igraph)#
+library(XML)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph(doc, format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-c(fb_table$friend_count)#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+install packages('XML')
+install.packages('XML')
+require(graphics)#
+library(igraph)#
+library(XML)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph(doc, format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-c(fb_table$friend_count)#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+install.packages('plyr')
+install.packages('ggplot2')
+install.packages('gridExtra')
+require(graphics)#
+library(igraph)#
+library(XML)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph('Desktop/mln.xml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table[['friend_count']])#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+require(graphics)#
+library(igraph)#
+library(XML)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph('Desktop/mln.xml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table[['friend_count']]#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParser('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-ldply(xmlToList('Desktop/mln.xml'), data.frame)#
+view(FB_frame)#
+friend_count<-FB-frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParser('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-ldply(xmlToList('Desktop/mln.xml'), data.frame)#
+View(FB_frame)#
+friend_count<-FB_frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require(graphics)#
+library(igraph)#
+library(XML)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph('Desktop/mln.xml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table$friend_count#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+require('reshape2')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParser('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_table<-ldply(xmlToList('Desktop/mln.xml'), data.table)#
+View(FB_table)#
+friend_count<-FB_table[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+require('reshape2')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParser('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-ldply(xmlToList('Desktop/mln.xml'), data.frame)#
+View(FB_frame)#
+friend_count<-FB_frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+require('reshape2')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-ldply(xmlToList('Desktop/mln.xml'), data.frame)#
+View(FB_frame)#
+friend_count<-FB_frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+require('reshape2')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-xmlToList('Desktop/mln.xml')#
+View(FB_frame)#
+friend_count<-FB_frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+require('reshape2')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-xmlToList('Desktop/mln.xml')#
+names(FB_frame)#
+lapply(FB_frame, class)#
+friend_count<-FB_frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+require('XML')#
+require('plyr')#
+require('ggplot2')#
+require('gridExtra')#
+require('reshape2')#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+class(doc)#
+xmltop<-xmlRoot(doc)#
+class(xmltop)#
+FB_frame<-ldply(xmlToList('Desktop/mln.xml'), function(x){data.frame(x[names(x)=='friend_count'])})#
+#
+friend_count<-FB_frame[['friend_count']]#
+class(friend_count)#
+max_friends<- max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit=num_friends+1#
+h<-hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+#
+dev.off()
+install.packages('causaleffect')
+require(graphics)#
+library(igraph)#
+library(XML)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+doc<-xmlParse('Desktop/mln.xml')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='xml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table$friend_count#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+points(20, num_friends, pch=20, col='red', type='h')#
+axis(1, at=20, labels='M.Nelson')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table$friend_count#
+max_friends<-max(friend_count)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table$friend_count#
+friends_with_friends<-friend_count[!friend_count=='NA']#
+max_friends<-max(friends_with_friends)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table$friend_count#
+class(friend_count)#
+friends_with_friends<-friend_count[!friend_count=='NA']#
+max_friends<-max(friends_with_friends)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+mat<-as.matrix(facebook_graph)#
+fb_table<-as.table(mat, header=TRUE)#
+friend_count<-fb_table[['friend_count']]#
+class(friend_count)#
+friends_with_friends<-friend_count[!friend_count=='NA']#
+max_friends<-max(friends_with_friends)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+fb_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-fb_graph[['friend_count']]#
+class(friend_count)#
+friends_with_friends<-friend_count[!friend_count=='NA']#
+max_friends<-max(friends_with_friends)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/FB_friend_paradox.pdf')#
+fb_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-fb_graph$node[['friend_count']]#
+class(friend_count)#
+friends_with_friends<-friend_count[!friend_count=='NA']#
+max_friends<-max(friends_with_friends)#
+num_friends<- length(friend_count)#
+xlimit= num_friends+1#
+h<- hist(friend_count, plot=FALSE, breaks=xlimit)#
+plot(h$mids, h$counts, log='xy', xaxt='n', ylim=c(1, max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', typ='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+data_frame<-get.data.frame(facebook_graph, what='attributes')#
+row.names(data_frame)<-NULL#
+friend_count<-list(data_frame['friend_count'])#
+max_friends<-max(friend_count[])#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+data_frame<-get.data.frame(facebook_graph, what='vertices')#
+row.names(data_frame)<-NULL#
+friend_count<-list(data_frame['friend_count'])#
+max_friends<-max(friend_count[])#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+data_frame<-get.data.frame(facebook_graph, what='vertices')#
+row.names(data_frame)<-NULL#
+friend_count<-list(data_frame['friend_count'])#
+max_friends<-max(c(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+data_frame<-get.data.frame(facebook_graph, what='vertices')#
+row.names(data_frame)<-NULL#
+friend_count<-list(data_frame['friend_count'])#
+max_friends<-max(c(friend_count))#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+data_frame<-get.data.frame(facebook_graph, what='vertices')#
+row.names(data_frame)<-NULL#
+friend_count<-c(data_frame['friend_count'])#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-c(V(facebook_graph)[["friend_count"]])#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-c(V(facebook_graph)$friend_count)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(data_frame['friend_count'], plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-c(V(facebook_graph)$friend_count)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-c(V(facebook_graph)$friend_count)#
+class(friend_count)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-c(V(facebook_graph)$friend_count)#
+names(friend_count)#
+lapply(friend_count, class)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+names(friend_count)#
+lapply(friend_count, class)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, log='xy', xlim=c(1, (num_friends)), ylim=c(1, 1000), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(friend_count)#
+num_friends<-length(friend_count)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=num_friends, ylim=max_friends, pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(friend_count)#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=num_friends, ylim=max_friends, pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(sapply(friend_count, max))#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=num_friends, ylim=max_friends, pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(sapply(friend_count, max))#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=(0,num_friends), ylim=max_friends, pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(sapply(friend_count, max))#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=c(0,num_friends), ylim=max_friends, pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(sapply(friend_count, max))#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=c(0,num_friends), ylim=c(0,max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(c(friend_count))#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=c(0,num_friends), ylim=c(0,max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
+pdf('Desktop/facebook_friend_paradox.pdf')#
+facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
+friend_count<-V(facebook_graph)$friend_count#
+summary(friend_count)#
+max_friends<-max(friend_count, na.rm=TRUE)#
+class(max_friends)#
+num_friends<-length(friend_count)#
+class(num_friends)#
+num_friends<- num_friends + 1#
+h<- hist(friend_count, plot=F, breaks=num_friends)#
+plot(h$mids, h$counts, xlim=c(0,num_friends), ylim=c(0,max_friends), pch=20, col='blue', main='Friendship Paradox', xlab='Friends', ylab='Number of Friends', type='h')#
+points(x[20], y[num_friends], pch=20, col='red', type='h')#
+dev.off()
+require(graphics)#
+library(igraph)#
 pdf('Desktop/facebook_friend_paradox.pdf')#
 facebook_graph<-read.graph('Desktop/mln.graphml', format='graphml')#
 friend_count<-V(facebook_graph)$friend_count#
@@ -3687,560 +4338,170 @@ plot(diff_data, xlim= c(1, 1025), ylim=c(-100,1000), pch=20, col='blue', main="T
 text(c(1000,1000,1000,1000,1000,1000),c(850,800,700,650,550,500), labels=c("Total URIs", length(diff_data), "No Change", num_zero_diff, "Max Difference", max_diff), pos=2, col='black')#
 #
 dev.off()
+source('~/Desktop/GitRepositories/Triathlon_Trainer/RawData.R', chdir = TRUE)
 require (graphics)#
-#
-names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE, col.names=names)
-require (graphics)#
-#
-names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE, col.names=names)
-require (graphics)#
-#
-names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE, col.names=names)#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE, col.names=names)#
-data[order(as.Date(d$TimeStamp, format="%Y-%m-%d %H:%M:%S +%f"))]#
-plot(data$Ax, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$Ay, type='o', col="yellow")#
-lines(data$Az, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE, col.names=names)#
-data[order(as.Date(data$TimeStamp, format="%Y-%m-%d %H:%M:%S +%f"))]#
-plot(data$Ax, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$Ay, type='o', col="yellow")#
-lines(data$Az, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-//names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f"))]#
-plot(data$V2, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', col="yellow")#
-lines(data$V4, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-//names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-data[order(as.Date(,data$V1, format="%Y-%m-%d %H:%M:%S +%f"))]#
-plot(data$V2, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', col="yellow")#
-lines(data$V4, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-//names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-data[order(,as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f"))]#
-plot(data$V2, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', col="yellow")#
-lines(data$V4, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-//names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f"))]#
-plot(data$V2, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', col="yellow")#
-lines(data$V4, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-//names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-plot(data$V2, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', col="yellow")#
-lines(data$V4, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
 data<-data[order(data$V1),]#
-plot(data$V2, type='o', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', col="yellow")#
-lines(data$V4, type='o', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
 #
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data[order(data$V1),]#
-plot(data$V2, type='b', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='b', col="yellow")#
-lines(data$V4, type='b', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='b', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='b', col="yellow")#
-lines(data$V4, type='b', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='b', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='b', col="yellow")#
-lines(data$V4, type='b', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='1', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='1', col="yellow")#
-lines(data$V4, type='1', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2,  col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3,  col="yellow")#
-lines(data$V4,  col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2,  col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3,  col="yellow")#
-lines(data$V4,  col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="yellow")#
-lines(data$V4, type='o', pch='.', col="black")#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="yellow")#
-lines(data$V4, type='o', pch='.', col="black")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike_small.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike_small.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike_small.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("Bike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
 write.csv(data, file="sortBike.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-1.5,1.5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(1.5,1.39,1.28), labels=c(xRMS, yRMS ,  zRMS))#
+#
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("smallBike.csv", header = FALSE)#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
 data<-data[order(data$V1),]#
+#
 write.csv(data, file="sortBike.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-1.5,1.5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(1.5,1.39,1.28), labels=c(xRMS, yRMS ,  zRMS))#
+#
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data <- read.csv("smallBike.csv", header = FALSE)#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
+#
+data<-data[order(data$V1),]#
+#
 write.csv(data, file="sortBike.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(1.5,1.39,1.28), labels=c(xRMS, yRMS ,  zRMS))#
+#
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-read.csv("smallBike.csv", header = FALSE)#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
+#
+data<-data[order(data$V1),]#
+#
 write.csv(data, file="sortBike.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(150, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
+#
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-read.csv("smallBike.csv", header = FALSE)#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
+#
+data<-data[order(data$V1),]#
+#
 write.csv(data, file="sortBike.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
-#write.csv(data, file="sortBike.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
 #
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-read.csv("smallBike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("sortRun.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("sortRun.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("sortRun.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1, c("X", "Y", "Z"), col=c("red","blue","green"))#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1, c("X", "Y", "Z"), col=c("red","blue","green"))#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1, c("X", "Y", "Z"), textcol=c("red","blue","green"))#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-data<-read.csv("Run.csv", header = FALSE)#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-data<-data[order(data$V1),]#
-#write.csv(data, file="sortRun.csv")#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
-data<-read.csv("Run.csv", header = FALSE)#
+data<-read.csv("Bike.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
 data<-data[order(data$V1),]#
 #
-#write.csv(data, file="sortRun.csv")#
+write.csv(data, file="sortBike.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Amplitude", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
-xRMS<-paste("xRMS: ", sqrt(mean(data%V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data%V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data%V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(2,2,2),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Run_raw.pdf")#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
-data<-read.csv("Run.csv", header = FALSE)#
+data<-read.csv("Bike.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
 data<-data[order(data$V1),]#
 #
-#write.csv(data, file="sortRun.csv")#
+write.csv(data, file="sortBike.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
-xRMS<-paste("xRMS: ", (sqrt(mean(data%V2^2))))#
-yRMS<-paste("yRMS: ", (sqrt(mean(data%V3^2))))#
-zRMS<-paste("zRMS: ", (sqrt(mean(data%V4^2))))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(2,2,2),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Run.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-#
-x<-sqrt(mean(data%V2^2))#
-y<-sqrt(mean(data%V3^2))#
-z<-sqrt(mean(data%V4^2))#
-#
-xRMS<-paste("xRMS: ", x)#
-yRMS<-paste("yRMS: ", y)#
-zRMS<-paste("zRMS: ", z)#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(2,2,2),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Run.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-#
-x<-sqrt(mean(c(data%V2)^2))#
-y<-sqrt(mean(c(data%V3)^2))#
-z<-sqrt(mean(c(data%V4)^2))#
-#
-xRMS<-paste("xRMS: ", x)#
-yRMS<-paste("yRMS: ", y)#
-zRMS<-paste("zRMS: ", z)#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(2,2,2),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Run.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(2,2,2),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
+pdf("GRun_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
@@ -4254,20 +4515,273 @@ data<-data[order(data$V1),]#
 xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
 yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
 zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
-text(c(2,2,2),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Run_raw.pdf")#
+pdf("GRun_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
-data<-read.csv("Run.csv", header = FALSE)#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-5,5), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-15,15), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-16,16), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 4, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(4,3.5,3), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(147, 15, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17,16,15), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(140, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17,16,15), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(140, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17,16,15), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GBike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(140, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17,16,15), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GBike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-7,7), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(148, 7, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(7,6.5,6), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GBike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-10,7), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(148, 7, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(7,6.5,6), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("Bike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
@@ -4277,336 +4791,104 @@ data<-data[order(data$V1),]#
 xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
 yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
 zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
+plot(data$V2, type='o', pch='.', col="red", ylim=c(-10,7), xlab="Time", ylab = "Acceleration", main = "Bike Accelerometer")#
 lines(data$V3, type='o', pch='.', col="blue")#
 lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+legend(148, 7, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(7,6.5,6), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("Bike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Acceleration", main = "Bike Accelerometer")#
+lines(data$V3, type='o', pch='.', col="blue")#
+lines(data$V4, type='o', pch='.', col="green")#
+legend(148, 7, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(7,6.5,6), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("Bike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V2, type='o', pch='.', col="red", ylim=c(-1,1), xlab="Time", ylab = "Acceleration", main = "Bike Accelerometer")#
+lines(data$V3, type='o', pch='.', col="blue")#
+lines(data$V4, type='o', pch='.', col="green")#
+legend(148, 7, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(7,6.5,6), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("Bike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
+plot(data$V2, type='o', pch='.', col="red", ylim=c(-1,1.5), xlab="Time", ylab = "Acceleration", main = "Bike Accelerometer")#
+lines(data$V3, type='o', pch='.', col="blue")#
+lines(data$V4, type='o', pch='.', col="green")#
+legend(148, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
 text(c(100,100,100),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Run.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(200,200,200),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
 pdf("Bike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(200,200,200),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(200,200,200),c(1.5,1.25,1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(300,300,300),c(.1,.075,.05), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(300,300,300),c(.15,.125,.1), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(300,300,300),c(.125,.115,.11), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(300,300,300),c(.125,.12,.115), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(300,300,300),c(.125,.118,.111), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-data<-read.csv("smallBike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data[order(data$V1),]
-data<-read.csv("Bike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data[order(data$V1),]
-data<-read.csv("Bike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data[order(data$V1),]#
-#
-write.csv(data, file="sortBike.csv")
 data<-read.csv("Bike.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
 data<-data[order(data$V1),]#
 #
-write.csv(data, file="sortBike.csv")
-data<-read.csv("Time_Test.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test.csv")
-data<-read.csv("Time_Test2.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test2.csv")
-data<-read.csv("Time_Test3.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test3.csv")
-data<-read.csv("Time_Test3.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test3.csv")
-data<-read.csv("Time_Test4.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test4.csv")
-data<-read.csv("Time_Test5.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test5.csv")
-data<-read.csv("Time_Test6.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test6.csv")
-data<-read.csv("Time_Test7.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortTime_Test7.csv")
-data<-read.csv("first.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortfirst.csv")
-data<-read.csv("second.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortsecond.csv")
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("second.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortsecond.csv")#
+#write.csv(data, file="sortRun.csv")#
 xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
 yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
 zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
+plot(data$V2, type='o', pch='.', col="red", ylim=c(-1,1.5), xlab="Time", ylab = "Acceleration", main = "Bike Accelerometer")#
 lines(data$V3, type='o', pch='.', col="blue")#
 lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+legend(148, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Run.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
+text(c(100,100,100),c(1.5,1.3,1.1), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
@@ -4624,12 +4906,12 @@ data<-read.csv("sortRun.csv", header = FALSE)#
 xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
 yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
 zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
+plot(data$V2, type='o', pch='.', col="red", ylim=c(-1,1.5), xlab="Time", ylab = "Acceleration", main = "Run Accelerometer")#
 lines(data$V3, type='o', pch='.', col="blue")#
 lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+legend(148, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
+text(c(100,100,100),c(1.5,1.3,1.1), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
@@ -4647,76 +4929,7 @@ data<-read.csv("sortRun.csv", header = FALSE)#
 xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
 yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
 zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-3,10), xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("sortRun.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-#data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-5,10), xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("sortRun.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-#data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(10, .1, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Run_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("sortRun.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-#data<-data[order(data$V1),]#
-#
-#write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Amplitude", main = "Run Accelerometer")#
+plot(data$V2, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Acceleration", main = "Run Accelerometer")#
 lines(data$V3, type='o', pch='.', col="blue")#
 lines(data$V4, type='o', pch='.', col="green")#
 legend(0, 10, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
@@ -4725,7 +4938,7 @@ text(c(100,100,100),c(10,9,8), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GRun_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
@@ -4733,45 +4946,114 @@ data<-read.csv("sortRun.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
-data<-data[order(data$V1),]#
+#data<-data[order(data$V1),]#
 #
-write.csv(data, file="sortRun.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
 legend(0, 10, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
 text(c(100,100,100),c(10,9,8), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GRun_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
-data<-read.csv("Bike.csv", header = FALSE)#
+data<-read.csv("sortRun.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
-data<-data[order(data$V1),]#
+#data<-data[order(data$V1),]#
 #
-write.csv(data, file="sortBike.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
 legend(0, 10, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
 text(c(100,100,100),c(10,9,8), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
 require (graphics)#
-pdf("Bike_raw.pdf")#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17,16,15), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GRun_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortRun.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Run Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17.5,16,14.5), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GBike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("sortBike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17.5,16,14.5), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GBike_raw.pdf")#
 #
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
 #
@@ -4779,86 +5061,40 @@ data<-read.csv("Bike.csv", header = FALSE)#
 #
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
 #
-data<-data[order(data$V1),]#
+#data<-data[order(data$V1),]#
 #
-write.csv(data, file="sortBike.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-1,1), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-17,17), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
+legend(0, 17, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
+#
+text(c(100,100,100),c(17.5,16,14.5), labels=c(xRMS, yRMS ,  zRMS))#
+#
+dev.off()
+require (graphics)#
+pdf("GBike_raw.pdf")#
+#
+#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
+#
+data<-read.csv("Bike.csv", header = FALSE)#
+#
+#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
+#
+#data<-data[order(data$V1),]#
+#
+#write.csv(data, file="sortRun.csv")#
+xRMS<-paste("xRMS: ", sqrt(mean(data$V5^2)))#
+yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))#
+zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))#
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")#
+lines(data$V6, type='o', pch='.', col="blue")#
+lines(data$V7, type='o', pch='.', col="green")#
 legend(0, 10, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
 #
 text(c(100,100,100),c(10,9,8), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Bike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortBike.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-1.5,1.5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(0, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.25,1.0), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Bike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortBike.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-1.5,1.5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(0, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.4,1.3), labels=c(xRMS, yRMS ,  zRMS))#
-#
-dev.off()
-require (graphics)#
-pdf("Bike_raw.pdf")#
-#
-#names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')#
-#
-data<-read.csv("Bike.csv", header = FALSE)#
-#
-#data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]#
-#
-data<-data[order(data$V1),]#
-#
-write.csv(data, file="sortBike.csv")#
-xRMS<-paste("xRMS: ", sqrt(mean(data$V2^2)))#
-yRMS<-paste("yRMS: ", sqrt(mean(data$V3^2)))#
-zRMS<-paste("zRMS: ", sqrt(mean(data$V4^2)))#
-plot(data$V2, type='o', pch='.', col="red", ylim=c(-1.5,1.5), xlab="Time", ylab = "Amplitude", main = "Bike Accelerometer")#
-lines(data$V3, type='o', pch='.', col="blue")#
-lines(data$V4, type='o', pch='.', col="green")#
-legend(0, 1.5, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))#
-#
-text(c(100,100,100),c(1.5,1.39,1.28), labels=c(xRMS, yRMS ,  zRMS))#
 #
 dev.off()
