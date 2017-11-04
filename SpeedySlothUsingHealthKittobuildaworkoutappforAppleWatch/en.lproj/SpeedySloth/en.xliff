@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="SpeedySloth WatchKit App/Base.lproj/Interface.storyboard" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body>
+      <trans-unit id="0xt-7N-diW.title">
+        <source>Pause</source>
+        <note>Class = "WKInterfaceButton"; title = "Pause"; ObjectID = "0xt-7N-diW";</note>
+      </trans-unit>
+      <trans-unit id="ADM-9Z-RsX.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "ADM-9Z-RsX";</note>
+      </trans-unit>
+      <trans-unit id="Eao-ZG-tZX.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "Eao-ZG-tZX";</note>
+      </trans-unit>
+      <trans-unit id="JbE-ls-T0G.text">
+        <source>Activity Type</source>
+        <note>Class = "WKInterfaceLabel"; text = "Activity Type"; ObjectID = "JbE-ls-T0G";</note>
+      </trans-unit>
+      <trans-unit id="Kt7-je-LHa.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "Kt7-je-LHa";</note>
+      </trans-unit>
+      <trans-unit id="OIZ-b9-Zi2.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "OIZ-b9-Zi2";</note>
+      </trans-unit>
+      <trans-unit id="Pnp-Yb-J7c.title">
+        <source>Marker</source>
+        <note>Class = "WKInterfaceButton"; title = "Marker"; ObjectID = "Pnp-Yb-J7c";</note>
+      </trans-unit>
+      <trans-unit id="Wng-ib-fyp.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "Wng-ib-fyp";</note>
+      </trans-unit>
+      <trans-unit id="bgZ-vR-fSL.title">
+        <source>Stop</source>
+        <note>Class = "WKInterfaceButton"; title = "Stop"; ObjectID = "bgZ-vR-fSL";</note>
+      </trans-unit>
+      <trans-unit id="cl2-ui-nNn.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "cl2-ui-nNn";</note>
+      </trans-unit>
+      <trans-unit id="d7l-ho-0Yo.text">
+        <source>Label</source>
+        <note>Class = "WKInterfaceLabel"; text = "Label"; ObjectID = "d7l-ho-0Yo";</note>
+      </trans-unit>
+      <trans-unit id="oVG-L9-p0W.text">
+        <source>Marker Saved!</source>
+        <note>Class = "WKInterfaceLabel"; text = "Marker Saved!"; ObjectID = "oVG-L9-p0W";</note>
+      </trans-unit>
+      <trans-unit id="s3l-fi-rwP.title">
+        <source>Done</source>
+        <note>Class = "WKInterfaceButton"; title = "Done"; ObjectID = "s3l-fi-rwP";</note>
+      </trans-unit>
+      <trans-unit id="w0Y-gV-pKv.text">
+        <source>Location Type</source>
+        <note>Class = "WKInterfaceLabel"; text = "Location Type"; ObjectID = "w0Y-gV-pKv";</note>
+      </trans-unit>
+      <trans-unit id="wLU-pX-ZjH.title">
+        <source>Start</source>
+        <note>Class = "WKInterfaceButton"; title = "Start"; ObjectID = "wLU-pX-ZjH";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SpeedySloth WatchKit App/Info.plist" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>SpeedySloth WatchKit App</source>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SpeedySloth WatchKit Extension/Info.plist" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>SpeedySloth WatchKit Extension</source>
+      </trans-unit>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SpeedySloth/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body/>
+  </file>
+  <file original="SpeedySloth/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body>
+      <trans-unit id="7xb-JK-G7s.text">
+        <source>starting</source>
+        <note>Class = "UILabel"; text = "starting"; ObjectID = "7xb-JK-G7s";</note>
+      </trans-unit>
+      <trans-unit id="G1o-o9-NNy.text">
+        <source>Location Type</source>
+        <note>Class = "UILabel"; text = "Location Type"; ObjectID = "G1o-o9-NNy";</note>
+      </trans-unit>
+      <trans-unit id="UBl-xg-mwt.text">
+        <source>Workout session is</source>
+        <note>Class = "UILabel"; text = "Workout session is"; ObjectID = "UBl-xg-mwt";</note>
+      </trans-unit>
+      <trans-unit id="c7Y-NS-Krz.normalTitle">
+        <source>Done</source>
+        <note>Class = "UIButton"; normalTitle = "Done"; ObjectID = "c7Y-NS-Krz";</note>
+      </trans-unit>
+      <trans-unit id="ewp-p3-1Ec.normalTitle">
+        <source>Start Workout</source>
+        <note>Class = "UIButton"; normalTitle = "Start Workout"; ObjectID = "ewp-p3-1Ec";</note>
+      </trans-unit>
+      <trans-unit id="uBB-dg-I0z.text">
+        <source>Activity Type</source>
+        <note>Class = "UILabel"; text = "Activity Type"; ObjectID = "uBB-dg-I0z";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="SpeedySloth/Info.plist" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="NSHealthShareUsageDescription">
+        <source>We will read the workouts saved while using Speedy Sloth</source>
+      </trans-unit>
+      <trans-unit id="NSHealthUpdateUsageDescription">
+        <source>We will write workouts and workout routes for activities performed while using Speedy Sloth</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="en.lproj/Localizable.strings" source-language="en" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0" build-num="9M121s"/>
+    </header>
+    <body>
+      <trans-unit id="Calories">
+        <source>Calories</source>
+        <note>Unit display for Calories</note>
+      </trans-unit>
+      <trans-unit id="Ended">
+        <source>Ended</source>
+        <note>Title when the workout session has ended</note>
+      </trans-unit>
+      <trans-unit id="Hiking">
+        <source>Hiking</source>
+        <note>Workout activity type for hiking</note>
+      </trans-unit>
+      <trans-unit id="Indoor">
+        <source>Indoor</source>
+        <note>Workout location type for indoor</note>
+      </trans-unit>
+      <trans-unit id="Meters">
+        <source>Meters</source>
+        <note>Unit display for Calories</note>
+      </trans-unit>
+      <trans-unit id="Outdoor">
+        <source>Outdoor</source>
+        <note>Workout location type for outdoor</note>
+      </trans-unit>
+      <trans-unit id="Pause">
+        <source>Pause</source>
+        <note>Button label to pause the workout
+   Title when the workout session is paused</note>
+      </trans-unit>
+      <trans-unit id="Resume">
+        <source>Resume</source>
+        <note>Button label to resume the workout</note>
+      </trans-unit>
+      <trans-unit id="Running">
+        <source>Running</source>
+        <note>Workout activity type for running</note>
+      </trans-unit>
+      <trans-unit id="Starting">
+        <source>Starting</source>
+        <note>Title when the workout session is starting</note>
+      </trans-unit>
+      <trans-unit id="Summary">
+        <source>Summary</source>
+        <note>Title for the workout summary view</note>
+      </trans-unit>
+      <trans-unit id="Unknown">
+        <source>Unknown</source>
+        <note>Workout location type for unknown</note>
+      </trans-unit>
+      <trans-unit id="Walking">
+        <source>test</source>
+        <note>Workout activity type for walking</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
