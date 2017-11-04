@@ -8,6 +8,7 @@
 
 import WatchKit
 import CoreMotion
+import HealthKit
 import WatchConnectivity
 
 
@@ -18,8 +19,10 @@ extension CMSensorDataList: Sequence {
 }
 
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
+class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWorkoutSessionDelegate {
     
+    let healthStoreManager = HealthStoreManager()
+    var workoutSession: HKWorkoutSession!
     let motion = CMMotionManager()
     var datalist = CMSensorDataList()
     var timer: Timer!
@@ -35,11 +38,20 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     let recorder = CMSensorRecorder()
     let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
     
+    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
+        
+    }
+    
+    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
+        
+    }
+    
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
     
     func startRecording(){
+        dict.removeAll()
         startTime = Date()
         recording = true
         if self.motion.isDeviceMotionAvailable{
@@ -116,6 +128,10 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
         // Perform any final initialization of your application.
         //let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
         //infoPlist = NSDictionary(contentsOfFile: path)
+        
+        // Start a workout session
+        workoutSession.delegate = self
+        healthStoreManager.start(workoutSession)
         
         // wake up session to phone
         session.delegate = self

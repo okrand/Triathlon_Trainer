@@ -23,6 +23,7 @@
 		49FB09721F814F9A00BACA3B /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */; };
 		49FB09741F814F9A00BACA3B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09731F814F9A00BACA3B /* NotificationController.swift */; };
 		49FB09761F814F9A00BACA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FB09751F814F9A00BACA3B /* Assets.xcassets */; };
+		A431429B1FAE38B100E105F2 /* HealthStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A431429A1FAE38B100E105F2 /* HealthStoreManager.swift */; };
 		A462AD151F8D7540006D0125 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FB095E1F814F9A00BACA3B /* Interface.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +109,7 @@
 		49FB09731F814F9A00BACA3B /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		49FB09751F814F9A00BACA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49FB09771F814F9A00BACA3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A431429A1FAE38B100E105F2 /* HealthStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStoreManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */,
 				496EF6B21F9FA0B300485418 /* SensorMoment.swift */,
 				49FB09731F814F9A00BACA3B /* NotificationController.swift */,
+				A431429A1FAE38B100E105F2 /* HealthStoreManager.swift */,
 				49FB09751F814F9A00BACA3B /* Assets.xcassets */,
 				49FB09771F814F9A00BACA3B /* Info.plist */,
 				49FB096D1F814F9A00BACA3B /* Supporting Files */,
@@ -464,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A431429B1FAE38B100E105F2 /* HealthStoreManager.swift in Sources */,
 				49FB09741F814F9A00BACA3B /* NotificationController.swift in Sources */,
 				49FB09721F814F9A00BACA3B /* ExtensionDelegate.swift in Sources */,
 				49FB09701F814F9A00BACA3B /* InterfaceController.swift in Sources */,
