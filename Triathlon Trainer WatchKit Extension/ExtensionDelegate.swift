@@ -22,7 +22,8 @@ extension CMSensorDataList: Sequence {
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWorkoutSessionDelegate {
     
     let healthStoreManager = HealthStoreManager()
-    var workoutSession: HKWorkoutSession!
+    let workoutconfig = HKWorkoutConfiguration()
+    
     let motion = CMMotionManager()
     var datalist = CMSensorDataList()
     var timer: Timer!
@@ -37,6 +38,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     let dateformat = DateFormatter()
     let recorder = CMSensorRecorder()
     let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
+    
+    
     
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         
@@ -54,9 +57,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         dict.removeAll()
         startTime = Date()
         recording = true
-        do{ try healthStoreManager.start(workoutSession)}
-        catch{print("Workout couldn't start")}
-        
+        // Start a workout session
+        do {
+            workoutconfig.activityType = .running
+            workoutconfig.locationType = .indoor
+            let Wsession = try HKWorkoutSession(configuration: workoutconfig)
+            Wsession.delegate = self
+            healthStoreManager.start(Wsession)
+        }
+        catch let error as NSError {
+            // Perform proper error handling here...
+            fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
+        }
         print("workoutstarted")
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 30.0 // 30 Hz
@@ -112,7 +124,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     
     func stopRecording() throws {
         self.recording = false
-        healthStoreManager.end(workoutSession)
         self.motion.stopDeviceMotionUpdates()
         endTime = Date()
         /*datalist = recorder.accelerometerData(from: startTime, to: endTime)!
@@ -134,14 +145,9 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         //let path = Bundle.main.path(forResource: "Info", ofType: "plist")!
         //infoPlist = NSDictionary(contentsOfFile: path)
         
-        // Start a workout session
-        workoutSession.delegate = self
-        healthStoreManager.start(workoutSession)
-        
         // wake up session to phone
         session.delegate = self
         session.activate()
-        
     }
 
     func applicationDidBecomeActive() {
@@ -152,6 +158,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     func applicationWillResignActive() {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, etc.
+        
     }
 
     func handle(_ backgroundTasks: Set<WKRefreshBackgroundTask>) {
