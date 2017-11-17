@@ -82,7 +82,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
             } catch {
                 print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
             }
-            urlPath = fileURL.relativeString
+            urlPath = fileURL.relativePath
             print(urlPath)
             // Then reading it back from the file
 //            var inString = ""
@@ -177,7 +177,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         
         //let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let docurl = URL.init(fileURLWithPath: urlPath)
-        session.transferFile(docurl, metadata: nil)
+        session.transferFile(docurl, metadata: dict)
         print("dictionary sent")
         
         self.dict.removeAll()

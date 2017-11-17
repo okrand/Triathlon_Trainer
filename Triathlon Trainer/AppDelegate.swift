@@ -69,14 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             }
             
             //Then reading it back from the file
-            var inString = ""
-            do {
-                inString = try String(contentsOf: fileURL)
-                print(inString)
-            } catch {
-                print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
-            }
-            print("Read from the file: \(inString)")
+//            var inString = ""
+//            do {
+//                inString = try String(contentsOf: fileURL)
+//                print(inString)
+//            } catch {
+//                print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+//            }
+//            print("Read from the file: \(inString)")
         }
         else {print("Couldn't create fileURL")}
     }
@@ -90,9 +90,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                                                in: .userDomainMask, appropriateFor: nil, create: true)
         do{
             try fileManager.moveItem(at: file.fileURL, to: dir2!)
+            //try fileManager.moveItem(atPath: file.fileURL.relativePath, toPath: (dir2?.relativePath)!)
+            print ("File Moved")
+            print (dir2?.absoluteString ?? "dont know current directory")
         }
         catch{
-            print("Couldn't move file, don't know why")
+            print("Couldn't move file, don't know why Here's the file location")
+            print(file.fileURL.relativePath)
+            print("Here's the destination")
+            print(dir2?.relativePath ?? "Don't know")
         }
     }
     
