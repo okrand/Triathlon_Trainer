@@ -66,11 +66,15 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
         let fileName = dateformat.string(from: Date())
-        let dir = try? FileManager.default.url(for: .documentDirectory,
-                                               in: .userDomainMask, appropriateFor: nil, create: true)
+        //let dir = try? FileManager.default.url(for: .documentDirectory,
+        //                                       in: .userDomainMask, appropriateFor: nil, create: true)
         
+        let FM = FileManager()
+        let dir = FM.containerURL(forSecurityApplicationGroupIdentifier: "group.triathlon.trainer")
+        //let dir = try? FileManager.containerURL(FileManager)
         // If the directory was found, we write a file to it and read it back
         if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("csv") {
+        
             
             // Write to the file named Test
             do {

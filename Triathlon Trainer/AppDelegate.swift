@@ -83,11 +83,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     func session(_ session: WCSession,
                           didReceive file: WCSessionFile){
+        //let FM = FileManager()
+        //let dir = FM.containerURL(forSecurityApplicationGroupIdentifier: "group.triathlon.trainer")
         let fileManager  = FileManager()
-        let dir = try? FileManager.default.url(for: .documentDirectory,
+        let dir2 = try? FileManager.default.url(for: .documentDirectory,
                                                in: .userDomainMask, appropriateFor: nil, create: true)
         do{
-            try fileManager.moveItem(at: file.fileURL, to: dir!)
+            try fileManager.moveItem(at: file.fileURL, to: dir2!)
         }
         catch{
             print("Couldn't move file, don't know why")
