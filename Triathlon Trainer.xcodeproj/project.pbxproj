@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4920FBC51FBF7B97002C229C /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4920FBC41FBF7B97002C229C /* HealthKit.framework */; };
 		496EF6B31F9FA0B300485418 /* SensorMoment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496EF6B21F9FA0B300485418 /* SensorMoment.swift */; };
 		49FB09351F814F9A00BACA3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09341F814F9A00BACA3B /* AppDelegate.swift */; };
 		49FB09371F814F9A00BACA3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FB09361F814F9A00BACA3B /* ViewController.swift */; };
@@ -84,6 +85,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4920FBC41FBF7B97002C229C /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.1.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		4920FBC61FBF7B97002C229C /* Triathlon Trainer WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Triathlon Trainer WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		496EF6B21F9FA0B300485418 /* SensorMoment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorMoment.swift; sourceTree = "<group>"; };
 		49FB09311F814F9A00BACA3B /* Triathlon Trainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Triathlon Trainer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FB09341F814F9A00BACA3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,12 +141,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4920FBC51FBF7B97002C229C /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4920FBC31FBF7B97002C229C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4920FBC41FBF7B97002C229C /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		49FB09281F814F9A00BACA3B = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +165,7 @@
 				49FB095D1F814F9A00BACA3B /* Triathlon Trainer WatchKit App */,
 				49FB096C1F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */,
 				49FB09321F814F9A00BACA3B /* Products */,
+				4920FBC31FBF7B97002C229C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +225,7 @@
 		49FB096C1F814F9A00BACA3B /* Triathlon Trainer WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4920FBC61FBF7B97002C229C /* Triathlon Trainer WatchKit Extension.entitlements */,
 				49FB096F1F814F9A00BACA3B /* InterfaceController.swift */,
 				49FB09711F814F9A00BACA3B /* ExtensionDelegate.swift */,
 				496EF6B21F9FA0B300485418 /* SensorMoment.swift */,
@@ -364,6 +378,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes.watchos.extension = {
+								enabled = 1;
+							};
+							com.apple.HealthKit.watchos = {
 								enabled = 1;
 							};
 						};
@@ -639,6 +656,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Triathlon Trainer WatchKit Extension/Triathlon Trainer WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				INFOPLIST_FILE = "Triathlon Trainer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -657,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "Triathlon Trainer WatchKit Extension/Triathlon Trainer WatchKit Extension.entitlements";
 				DEVELOPMENT_TEAM = 9UYNGK5T3A;
 				INFOPLIST_FILE = "Triathlon Trainer WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
