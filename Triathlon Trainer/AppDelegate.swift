@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
             }
             
-            // Then reading it back from the file
+            //Then reading it back from the file
             var inString = ""
             do {
                 inString = try String(contentsOf: fileURL)
@@ -83,8 +83,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     
     func session(_ session: WCSession,
                           didReceive file: WCSessionFile){
-        dict = file.metadata as! [String : String]
-        writeDict(dict: dict)
+        let fileManager  = FileManager()
+        let dir = try? FileManager.default.url(for: .documentDirectory,
+                                               in: .userDomainMask, appropriateFor: nil, create: true)
+        do{
+            try fileManager.moveItem(at: file.fileURL, to: dir!)
+        }
+        catch{
+            print("Couldn't move file, don't know why")
+        }
     }
     
 //    func session(_ session: WCSession,

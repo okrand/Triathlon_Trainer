@@ -57,11 +57,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     
     func writeDict(dict: [String:String]){
         print("Got Dictionary")
-        let outString = ""
-//        for x in dict{
-//            outString += x.key + "," + x.value
-//            print (x.key + "," + x.value)
-//        }
+        var outString = ""
+        for x in dict{
+            outString += x.key + "," + x.value
+            print (x.key + "," + x.value)
+        }
         
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
@@ -71,7 +71,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         
         // If the directory was found, we write a file to it and read it back
         if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("csv") {
-            print(fileURL)
             
             // Write to the file named Test
             do {
@@ -80,6 +79,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
                 print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
             }
             urlPath = fileURL.absoluteString
+            print(urlPath)
             // Then reading it back from the file
 //            var inString = ""
 //            do {
@@ -154,14 +154,8 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
                             self.dict[currentTime] = rec
                         }
         })*/
-        
-        
         // Add the timer to the current run loop.
         //RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
-        
-        
-        
-        
     }
     
     func stopRecording() throws {
@@ -179,7 +173,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         
         //let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let docurl = URL.init(fileURLWithPath: urlPath)
-        session.transferFile(docurl, metadata: dict)
+        session.transferFile(docurl, metadata: nil)
         print("dictionary sent")
         
         self.dict.removeAll()
