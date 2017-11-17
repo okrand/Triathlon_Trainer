@@ -24,10 +24,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     let healthStoreManager = HealthStoreManager()
     let workoutconfig = HKWorkoutConfiguration()
     
+    let files = FileManager()
     let motion = CMMotionManager()
     var datalist = CMSensorDataList()
     var timer: Timer!
     var dict = [String: String]()
+    var dat = Data()
     var dict2 = [String: String]()
     var recording: Bool! = false
     var recordTimer: Timer!
@@ -53,6 +55,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         
     }
     
+    
     func startRecording(){
         dict.removeAll()
         startTime = Date()
@@ -70,6 +73,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
             fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
         }
         print("workoutstarted")
+        recorder.recordAccelerometer(forDuration: 5 * 60)  // Record for 5 minutes
         if self.motion.isDeviceMotionAvailable{
             self.motion.deviceMotionUpdateInterval = 1.0 / 30.0 // 30 Hz
             self.motion.startDeviceMotionUpdates(to: OperationQueue.current!) {deviceManager, error in
@@ -132,11 +136,13 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
             dict2[String(index)] = String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z)
             print (String(index) + "," + String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z))
         }*/
-        do {
-            try session.updateApplicationContext(dict)
+        
+        //session.sendMessageData(dict, replyHandler: nil, errorHandler: nil)
+        
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            session.transferFile(documentsUrl, metadata: dict)
             print("dictionary sent")
-        }
-        catch {print("No Session")}
+        
         self.dict.removeAll()
     }
     

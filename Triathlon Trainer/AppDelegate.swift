@@ -44,9 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         return true
     }
     
-    func session(_ session: WCSession,
-                          didReceiveApplicationContext applicationContext: [String : String]){
-        dict = applicationContext
+    func writeDict(dict: [String:String]){
         print("Got Dictionary")
         var outString = ""
         for x in dict{
@@ -83,6 +81,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         else {print("Couldn't create fileURL")}
     }
     
+    func session(_ session: WCSession,
+                          didReceive file: WCSessionFile){
+        dict = file.metadata as! [String : String]
+        writeDict(dict: dict)
+    }
+    
+//    func session(_ session: WCSession,
+//                          didReceiveApplicationContext applicationContext: [String : String]){
+//        dict = applicationContext
+//
+//    }
+    
+   
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -107,4 +119,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
 
 }
-
