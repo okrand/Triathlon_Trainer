@@ -82,7 +82,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
             } catch {
                 print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
             }
-            urlPath = fileURL.absoluteString
+            urlPath = fileURL.relativeString
             print(urlPath)
             // Then reading it back from the file
 //            var inString = ""
