@@ -24,7 +24,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     let healthStoreManager = HealthStoreManager()
     let workoutconfig = HKWorkoutConfiguration()
     
-    let files = FileManager()
+    var urlPath = String()
     let motion = CMMotionManager()
     var datalist = CMSensorDataList()
     var timer: Timer!
@@ -53,6 +53,44 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
+    }
+    
+    func writeDict(dict: [String:String]){
+        print("Got Dictionary")
+        let outString = ""
+//        for x in dict{
+//            outString += x.key + "," + x.value
+//            print (x.key + "," + x.value)
+//        }
+        
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+        let fileName = dateformat.string(from: Date())
+        let dir = try? FileManager.default.url(for: .documentDirectory,
+                                               in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        // If the directory was found, we write a file to it and read it back
+        if let fileURL = dir?.appendingPathComponent(fileName).appendingPathExtension("csv") {
+            print(fileURL)
+            
+            // Write to the file named Test
+            do {
+                try outString.write(to: fileURL, atomically: true, encoding: .utf8)
+            } catch {
+                print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
+            }
+            urlPath = fileURL.absoluteString
+            // Then reading it back from the file
+//            var inString = ""
+//            do {
+//                inString = try String(contentsOf: fileURL)
+//                print(inString)
+//            } catch {
+//                print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
+//            }
+//            print("Read from the file: \(inString)")
+        }
+        else {print("Couldn't create fileURL")}
     }
     
     
@@ -137,11 +175,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
             print (String(index) + "," + String(d.acceleration.x) + "," + String(d.acceleration.y) + "," + String(d.acceleration.z))
         }*/
         
-        //session.sendMessageData(dict, replyHandler: nil, errorHandler: nil)
+        writeDict(dict: dict)
         
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-            session.transferFile(documentsUrl, metadata: dict)
-            print("dictionary sent")
+        //let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let docurl = URL.init(fileURLWithPath: urlPath)
+        session.transferFile(docurl, metadata: dict)
+        print("dictionary sent")
         
         self.dict.removeAll()
     }
