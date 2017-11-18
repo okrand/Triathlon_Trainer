@@ -17,10 +17,7 @@ class ViewController: UIViewController{//, UITableViewDataSource, UITableViewDel
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    func updateLabel(newText: String){
-        scrLabel.text = newText
-        
-    }
+    
     
     /*// UITableViewDataSource Functions
     

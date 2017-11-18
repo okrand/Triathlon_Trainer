@@ -96,8 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, UIPage
             try fileManager.moveItem(at: file.fileURL, to: dir2!)
             //try fileManager.moveItem(atPath: file.fileURL.relativePath, toPath: (dir2?.relativePath)!)
             print ("File Moved")
-            let view = ViewController()
-            view.updateLabel(newText: "File Moved")
             print (dir2?.absoluteString ?? "dont know current directory")
         }
         catch {
