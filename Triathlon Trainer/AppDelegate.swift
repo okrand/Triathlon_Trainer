@@ -94,7 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             print ("File Moved")
             print (dir2?.absoluteString ?? "dont know current directory")
         }
-        catch{
+        catch {
+            let nsError = error as NSError
+            print(nsError.localizedDescription)
             print("Couldn't move file, don't know why Here's the file location")
             print(file.fileURL.relativePath)
             print("Here's the destination")
