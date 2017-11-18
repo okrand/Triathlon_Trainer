@@ -102,5 +102,7 @@ def getTraningData(path):
         filepath=os.path.join(path, file)
         with open(filepath, 'r') as infile:
             read=csv.reader
+            T_list.extend(list(read))
+            
         
 
