@@ -20,7 +20,7 @@ extension CMSensorDataList: Sequence {
 
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWorkoutSessionDelegate {
-    let interface = InterfaceController()
+    //let interface = InterfaceController()
     
     let healthStoreManager = HealthStoreManager()
     var workoutSession: HKWorkoutSession!
@@ -186,7 +186,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         let docurl = URL.init(fileURLWithPath: urlPath)
         session.transferFile(docurl, metadata: dict)
         print("file sent")
-        interface.updateLabelText(newText: "file sent")
+        //interface.updateLabelText(newText: "file sent")
         self.dict.removeAll()
     }
     
