@@ -87,8 +87,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, UIPage
         //let FM = FileManager()
         //let dir = FM.containerURL(forSecurityApplicationGroupIdentifier: "group.triathlon.trainer")
         let fileManager  = FileManager()
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM-dd H:m:ss +SSSS"
+        let fileName = dateformat.string(from: Date())
         let dir2 = try? FileManager.default.url(for: .documentDirectory,
-                                               in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("/")
+                                               in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(fileName).appendingPathExtension("csv")
         do{
             try fileManager.moveItem(at: file.fileURL, to: dir2!)
             //try fileManager.moveItem(atPath: file.fileURL.relativePath, toPath: (dir2?.relativePath)!)
