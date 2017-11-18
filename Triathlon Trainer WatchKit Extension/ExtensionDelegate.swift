@@ -80,7 +80,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
             
             // Write to the file named Test
             do {
-                try outString.write(to: fileURL, atomically: true, encoding: .utf8)
+                try outString.write(to: fileURL, atomically:false, encoding: .utf8)
             } catch {
                 print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
             }
@@ -184,7 +184,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         print("File created")
         //let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let docurl = URL.init(fileURLWithPath: urlPath)
-        session.transferFile(docurl, metadata: dict)
+        session.transferFile(docurl, metadata: nil)
         print("file sent")
         //interface.updateLabelText(newText: "file sent")
         self.dict.removeAll()
