@@ -94,5 +94,13 @@ def getAvgPeakDistAmp(df):
         row.extend([avgDist,stdDist,avgAmp,stdAmp])
         
     return row
-            
-    
+
+def getTraningData(path):
+    T_list=[]
+    Actual=[]
+    for file in os.listdir(path):
+        filepath=os.path.join(path, file)
+        with open(filepath, 'r') as infile:
+            read=csv.reader
+        
+
