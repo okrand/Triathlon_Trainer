@@ -23,6 +23,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     let interface = InterfaceController()
     
     let healthStoreManager = HealthStoreManager()
+    var workoutSession: HKWorkoutSession!
     
     var urlPath = String()
     let motion = CMMotionManager()
@@ -54,27 +55,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         
     }
     
-    func changeWorkout(onoff: Bool){
-        let configuration = HKWorkoutConfiguration()
-        configuration.activityType = .running
-        configuration.locationType = .indoor
-        
-        do {
-            let Wsession = try HKWorkoutSession(configuration: configuration)
-            Wsession.delegate = self
-            if (onoff){
-                healthStoreManager.start(Wsession)
-            }
-            else{
-                healthStoreManager.end(Wsession)
-            }
-        }
-        catch let error as NSError {
-            // Perform proper error handling here...
-            fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
-        }
-        
-    }
+    
     
     func writeDict(dict: [String:String]){
         print("Got Dictionary")
@@ -124,7 +105,18 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         startTime = Date()
         recording = true
         // Start a workout session
-        changeWorkout(onoff: true)
+        let workoutConfiguration = HKWorkoutConfiguration()
+        workoutConfiguration.activityType = .running
+        workoutConfiguration.locationType = .indoor
+        
+        // Create a workout session with the workout configuration
+        do {
+            workoutSession = try HKWorkoutSession(configuration: workoutConfiguration)
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+        workoutSession.delegate = self
+        healthStoreManager.start(workoutSession)
         print("workoutstarted")
         recorder.recordAccelerometer(forDuration: 5 * 60)  // Record for 5 minutes
         if self.motion.isDeviceMotionAvailable{
@@ -175,10 +167,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     }
     
     func stopRecording() throws {
-        changeWorkout(onoff: false)
         self.recording = false
         self.motion.stopDeviceMotionUpdates()
         endTime = Date()
+        
+        healthStoreManager.end(workoutSession)
+        print("HKWorkout Ended")
         /*datalist = recorder.accelerometerData(from: startTime, to: endTime)!
         for (index, data) in datalist.enumerated(){
             let d = data as! CMRecordedAccelerometerData
@@ -187,12 +181,12 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         }*/
         
         writeDict(dict: dict)
-        
+        print("File created")
         //let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let docurl = URL.init(fileURLWithPath: urlPath)
         session.transferFile(docurl, metadata: dict)
-        print("dictionary sent")
-        interface.updateLabelText(newText: "dictionary sent")
+        print("file sent")
+        interface.updateLabelText(newText: "file sent")
         self.dict.removeAll()
     }
     
