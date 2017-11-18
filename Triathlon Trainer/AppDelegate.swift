@@ -11,7 +11,7 @@ import CoreMotion
 import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate, UIPageViewControllerDelegate {
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         print ("session active")
     }
@@ -81,17 +81,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
         else {print("Couldn't create fileURL")}
     }
     
+    
     func session(_ session: WCSession,
                           didReceive file: WCSessionFile){
         //let FM = FileManager()
         //let dir = FM.containerURL(forSecurityApplicationGroupIdentifier: "group.triathlon.trainer")
         let fileManager  = FileManager()
         let dir2 = try? FileManager.default.url(for: .documentDirectory,
-                                               in: .userDomainMask, appropriateFor: nil, create: true)
+                                               in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("/")
         do{
             try fileManager.moveItem(at: file.fileURL, to: dir2!)
             //try fileManager.moveItem(atPath: file.fileURL.relativePath, toPath: (dir2?.relativePath)!)
             print ("File Moved")
+            let view = ViewController()
+            view.updateLabel(newText: "File Moved")
             print (dir2?.absoluteString ?? "dont know current directory")
         }
         catch {

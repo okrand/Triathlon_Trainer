@@ -20,9 +20,9 @@ extension CMSensorDataList: Sequence {
 
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWorkoutSessionDelegate {
+    let interface = InterfaceController()
     
     let healthStoreManager = HealthStoreManager()
-    let workoutconfig = HKWorkoutConfiguration()
     
     var urlPath = String()
     let motion = CMMotionManager()
@@ -42,7 +42,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     let haveAccelerometer = CMSensorRecorder.isAccelerometerRecordingAvailable()
     
     
-    
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         
     }
@@ -52,6 +51,28 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
     }
     
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func changeWorkout(onoff: Bool){
+        let configuration = HKWorkoutConfiguration()
+        configuration.activityType = .running
+        configuration.locationType = .indoor
+        
+        do {
+            let Wsession = try HKWorkoutSession(configuration: configuration)
+            Wsession.delegate = self
+            if (onoff){
+                healthStoreManager.start(Wsession)
+            }
+            else{
+                healthStoreManager.end(Wsession)
+            }
+        }
+        catch let error as NSError {
+            // Perform proper error handling here...
+            fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
+        }
         
     }
     
@@ -103,17 +124,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         startTime = Date()
         recording = true
         // Start a workout session
-        do {
-            workoutconfig.activityType = .running
-            workoutconfig.locationType = .indoor
-            let Wsession = try HKWorkoutSession(configuration: workoutconfig)
-            Wsession.delegate = self
-            healthStoreManager.start(Wsession)
-        }
-        catch let error as NSError {
-            // Perform proper error handling here...
-            fatalError("*** Unable to create the workout session: \(error.localizedDescription) ***")
-        }
+        changeWorkout(onoff: true)
         print("workoutstarted")
         recorder.recordAccelerometer(forDuration: 5 * 60)  // Record for 5 minutes
         if self.motion.isDeviceMotionAvailable{
@@ -160,9 +171,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         })*/
         // Add the timer to the current run loop.
         //RunLoop.current.add(timer, forMode: .defaultRunLoopMode)
+        
     }
     
     func stopRecording() throws {
+        changeWorkout(onoff: false)
         self.recording = false
         self.motion.stopDeviceMotionUpdates()
         endTime = Date()
@@ -179,7 +192,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate, HKWor
         let docurl = URL.init(fileURLWithPath: urlPath)
         session.transferFile(docurl, metadata: dict)
         print("dictionary sent")
-        
+        interface.updateLabelText(newText: "dictionary sent")
         self.dict.removeAll()
     }
     

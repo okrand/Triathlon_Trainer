@@ -11,17 +11,17 @@ import UIKit
 class ViewController: UIViewController{//, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Properties
-    @IBOutlet var theTable: UITableView!
+    @IBOutlet weak var scrLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var dict = [String: String]()
-        
-        
-        //theTable.dataSource = self
-        //theTable.delegate = self
     }
+    func updateLabel(newText: String){
+        scrLabel.text = newText
+        
+    }
+    
     /*// UITableViewDataSource Functions
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -151,6 +151,9 @@ class InterfaceController: WKInterfaceController {
     func updateButtonText(newText: String){
         theButton.setTitle(newText)
     }
+    func updateLabelText(newText: String){
+        XAxis.setText(newText)
+    }
     
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
