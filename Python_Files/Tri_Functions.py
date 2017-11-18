@@ -100,9 +100,14 @@ def getTraningData(path):
     Actual=[]
     for file in os.listdir(path):
         filepath=os.path.join(path, file)
+        classification= os.path.splittext(file)[0]
         with open(filepath, 'r') as infile:
             read=csv.reader
             T_list.extend(list(read))
+            for i in list(read):
+                Actual.append(classification)
+
+    return zip(Actual, T_list)
             
         
 
