@@ -1,8 +1,11 @@
 import sklearn
 import pandas as pd
-import numpy as np
+#import numpy as np
 import statistics as stat
 import peakutils
+import os
+import csv
+import codecs
 
 
 
@@ -86,7 +89,10 @@ def getAvgPeakDistAmp(df):
         Amp=[]
         for point in indexes:
             Amp.append(df[column].iloc[point])
-        avgAmp=stat.mean(Amp)
+        if(len(Amp)>=1):
+            avgAmp=stat.mean(Amp)
+        else:
+            avgAmp=-1
         if(len(Amp)>1):
             stdAmp=stat.stdev(Amp)
         else:
@@ -95,19 +101,26 @@ def getAvgPeakDistAmp(df):
         
     return row
 
-def getTraningData(path):
+def getTrainingData(path):
     T_list=[]
     Actual=[]
     for file in os.listdir(path):
         filepath=os.path.join(path, file)
-        classification= os.path.splittext(file)[0]
-        with open(filepath, 'r') as infile:
-            read=csv.reader
-            T_list.extend(list(read))
-            for i in list(read):
-                Actual.append(classification)
+        if(os.path.splitext(file)[1]=='.csv'):
+            classification= os.path.splitext(file)[0]
+            with open(filepath, 'r') as infile:
+                print(filepath)
+                read=csv.reader(infile)
+                T_list.extend(list(read))
+                for i in list(read):
+                    Actual.append(classification)
+    with open('./test.csv', 'w') as testfile:
+        test_list=zip(Actual,T_list)
+        write=csv.writer(testfile)
+        for item in test_list:
+            write.writerow(item)       
 
-    return zip(Actual, T_list)
+    return Actual, T_list
             
         
 

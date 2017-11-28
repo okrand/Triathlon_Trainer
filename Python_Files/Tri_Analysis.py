@@ -1,27 +1,33 @@
 from Tri_Functions import *
 import pandas
 from sys import argv
-import os
 import csv
+from sklearn import svm
 
 Activity_file=argv[1]
 
 
-with open(Activity_file, 'r') as infile:
-    read = csv.reader(infile)
-    A_list = list(read)
+#with open(Activity_file, 'r') as infile:
+#    read = csv.reader(infile)
+#    A_list = list(read)
+#
+#A_list = sorted(A_list, key=lambda x: x[0])
+#
+#print('processing file')
 
-A_list = sorted(A_list, key=lambda x: x[0])
+#P_list = Process_Features(A_list, 30)
 
-print('processing file')
+#filename='processed_'.rstrip() + Activity_file
 
-P_list = Process_Features(A_list, 30)
+#with open(filename, 'w') as outfile:
+#    write = csv.writer(outfile)
+#    for item in P_list:
+#        write.writerow(item)
+
+path = './training_data'
+actual, t_list = getTrainingData(path)
 
 
-filename='processed_'.rstrip() + Activity_file
+model = svm.SVC(kernel='rbf', C=10, gamma=10).fit(t_list, actual)
 
-
-with open(filename, 'w') as outfile:
-    write = csv.writer(outfile)
-    for item in P_list:
-        write.writerow(item)
+print(model.score(t_list, actual) )

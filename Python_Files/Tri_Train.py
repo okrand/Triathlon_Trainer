@@ -15,13 +15,19 @@ A_list = sorted(A_list, key=lambda x: x[0])
 
 print('processing file')
 
-P_list = Process_Features(A_list, 30)
+P_list = list(Process_Features(A_list, 30))
 
 path = './training_data'
 filename=classification + '.csv'
 filepath=os.path.join(path, filename)
 
-with open(filepath, 'a') as outfile:
+if os.path.exists(filepath):
+    with open(filepath, 'r') as infile:
+        read=csv.reader(infile)
+        A_list= list(read)
+        P_list.extend(A_list)
+
+with open(filepath, 'w') as outfile:
     write = csv.writer(outfile)
     for item in P_list:
         write.writerow(item)
