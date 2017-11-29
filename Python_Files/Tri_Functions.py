@@ -13,6 +13,7 @@ def Process_Features(l, n):
     Rheaders=['time','Ax','Ay','Az','Gx','Gy','Gz']
     Pheaders=['b_time','e_time','RMS']
     # For item i in a range that is a length of l,
+    n=150
     for i in range(0, len(l), n):
         RawChunk = pd.DataFrame(l[i:i+n],columns=Rheaders)
         #record beginning and end time
@@ -109,13 +110,16 @@ def getTrainingData(path):
         if(os.path.splitext(file)[1]=='.csv'):
             classification= os.path.splitext(file)[0]
             with open(filepath, 'r') as infile:
-                print(filepath)
                 read=csv.reader(infile)
                 T_list.extend(list(read))
-                for i in list(read):
+                count=len(T_list)-len(Actual)
+                for i in range(count):
                     Actual.append(classification)
+    for row in T_list:
+        del row[0]
+    
     with open('./test.csv', 'w') as testfile:
-        test_list=zip(Actual,T_list)
+        test_list=list(zip(Actual,T_list))
         write=csv.writer(testfile)
         for item in test_list:
             write.writerow(item)       
