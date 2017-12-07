@@ -7,21 +7,78 @@ import os
 import csv
 import codecs
 import matplotlib.pyplot as plt
+import sys
+import re
 
-def plotResults(E_list, R_list):
-    start=np.array([float(i[1]) for i in E_list])
-    stop=np.array([float(i[2]) for i in E_list])
-    activity=np.array([i[0] for i in E_list])
-    plt.barh(range(len(start)), stop-start, left=start, color=['red','blue'])
-    plt.yticks(range(len(activity)), activity)
+p=re.compile(r'\d+\.\d+')
+
+##def getGroundTruth(P_list):
+##    first=input('FIRST ACTIVITY Enter type(NA if none): ')
+##    firststart=float(input('FIRST ACTIVITY Enter starttime in seconds(0.0 if none): '))
+##    firststop=float(input('FIRST ACTIVITY Enter stoptime in seconds(0.0 if none): '))
+##    second=input('SECOND ACTIVITY Enter type(NA if none): ')
+##    secondstart=float(input('SECOND ACTIVITY Enter starttime in seconds(0.0 if none): '))
+##    secondstop=float(input('SECOND ACTIVITY Enter stoptime in seconds(0.0 if none): '))
+##    third=input('THIRD ACTIVITY Enter type(NA if none): ')
+##    thirdstart=float(input('THIRD ACTIVITY Enter starttime in seconds(0.0 if none): '))
+##    thirdstop=float(input('THIRD ACTIVITY Enter stoptime in seconds(0.0 if none): '))
+##    G_list=[]
+##    for item in P_list:
+##        x=[float(i) for i in p.findall(str(item))]
+##        if x[0] < firststart:
+##            G_list.append('transition')
+##        elif x > firststart and y<firststop:
+            
+    
+##return[[first,firststart,firststop],[second,secondstart,secondstop],[third,thirdstart,thirdstop]]
+
+def adjustTime(A_list):
+    timestamp=float(A_list[0][0])
+    for row in A_list:
+        row[0]=float(row[0])-timestamp
+    return A_list
+
+def plotResults(E_list, A_list):
+    #Activity=pd.DataFrame(A_list, columns=headers)
+    x=np.array([i[0] for i in A_list])
+    plt.gca().set_prop_cycle(plt.cycler('color', ['blue','green','red']))
+    plt.subplot(2,1,1)
+    for i in range(1,4):
+        plt.plot(x,[a[i] for a in A_list])
+    plt.title('Results')
+    plt.ylabel('Accelerometer (m/s^2)')
+
+    for i in E_list:
+        ymin, ymax = plt.ylim()
+        plt.axvline(float(i[1]), color='pink')
+        plt.axvline(float(i[2]), color='pink')
+        plt.text(float(i[1]), ymin, i[0].rstrip() + ' start', rotation='vertical', ha='right', va='bottom')
+        plt.text(float(i[2]), ymin, i[0].rstrip() + ' stop', rotation='vertical', ha='right', va = 'bottom')
+    plt.legend(['Ax','Ay','Az'], loc='upper right')
+
+    plt.subplot(2,1,2)
+    for i in range(4,7):
+        plt.plot(x,[a[i] for a in A_list])
+    plt.ylabel('Gyroscope (rev/s)')
+    plt.xlabel('time(s)')
+    for i in E_list:
+        ymin, ymax = plt.ylim()
+        plt.axvline(float(i[1]), color='pink')
+        plt.axvline(float(i[2]), color='pink')
+        plt.text(float(i[1]), ymin, i[0].rstrip() + ' start', rotation='vertical', ha='right', va='bottom')
+        plt.text(float(i[2]), ymin, i[0].rstrip() + ' stop', rotation='vertical', ha='right', va = 'bottom')
+    plt.legend(['Gx','Gy','Gz'], loc='upper right')
+   
     plt.show()
 
 def Process_Features(l, n):
     Rheaders=['time','Ax','Ay','Az','Gx','Gy','Gz']
-    Pheaders=['b_time','e_time','RMS']
     # For item i in a range that is a length of l,
-    n=150
-    for i in range(0, len(l), n):
+    l_len=len(l)-n
+    for i in range(0, (l_len),30):##range(0, len(l), n)
+        progress= float(i)/l_len *100
+        sys.stdout.write("Creating Vectors: %f%%   \r" % (progress) )
+        sys.stdout.flush()
         RawChunk = pd.DataFrame(l[i:i+n],columns=Rheaders)
         #record beginning and end time
         b_time= RawChunk['time'].iloc[0]
@@ -138,65 +195,130 @@ def Process_Activity(R_list, Activity_file):
     firstStop=0
     secondStart=0
     secondStop=0
-    #thirdStart=0
-    #thirdStop=0
-    first=''
-    second=''
-    #third=''
+    thirdStart=0
+    thirdStop=0
+    first='NA'
+    second='NA'
+    third='NA'
     activities=['run','bike']## add 'swim'
     RR_list=R_list[::-1]
     Ccounter=0 #current counter
-    Tcounter=0
+    Tcounter=0 #transition counter
+    Ncounter=0 #possible next counter
+    Bcounter=0 #stepback if next erroneous
+    possibleN='' #possible next activity
+
     for row in R_list:
-        if first == '':
+        if first == 'NA':
             if row[0] in activities:
-                first=row[0]
-                firstStart=row[1]
-                print(first, firstStart)
-        elif second == '':
+                if Ncounter>3 and possibleN==row[0]:
+                    first=row[0]
+                    Ccounter=Ncounter
+                    Ncounter=0
+                    possibleN=''
+                    
+                elif possibleN==row[0]:
+                    Ncounter=Ncounter+1
+                else:
+                    firstStart=row[1]
+                    possibleN=row[0]
+                    Ncounter = 1
+        elif second == 'NA':
             if row[0] == first:
-                if Tcounter<3:
+                if Tcounter<10:
                     firstStop=row[2]
-                if Ccounter>2:
+                    secondStart=0
+                    Tcounter=1
+                elif Ccounter>3:
                     firstStop=row[2]
+                    secondStart=0
                     Tcounter=0                   
-                Ccounter= Ccounter+1
+                Ccounter = Ccounter+1
+                possibleN=''
+                Ncounter=0
             elif row[0] in activities:
-                second=row[0]
-                secondStart=row[1]
-                print(first, firstStop)
-                print(second, secondStart)
+                if Ncounter>4 and possibleN==row[0]:
+                    second=row[0]
+                    Ccounter=Ncounter
+                    Ncounter=0
+                    possibleN=''
+                    
+                elif possibleN==row[0]:
+                    Ncounter=Ncounter+1
+                elif Tcounter>15 and row[0]!=first:
+                    secondStart=row[1]
+                    possibleN=row[0]
+                    Ncounter = 1
             else:
                 Ccounter=0
                 Tcounter= Tcounter+1
-        else: ##elif third == '':
+        elif third == 'NA':
             if row[0] == second:
-                if Tcounter<3:
+                if Tcounter<10:
                     secondStop=row[2]
-                if Ccounter>2:
+                    thirdStart=0
+                    Tcounter=1
+                if Ccounter>3:
                     secondStop=row[2]
-                    Tcounter=0                   
+                    thirdStart=0
+                    Tcounter=0
+                possibleN=''
+                Ncounter=0
                 Ccounter= Ccounter+1
-##            elif row[0] in activities:
-##                third=row[0]
-##                thirdStart=row[1]
-##                print(second, secondStop)                               
-##                print(third, thirdStart)
-            elif row[0] not in activities: ##else:
+            elif row[0] == first and secondStop==0:
+                if Bcounter>4:
+                    second='NA'
+                    secondStart=0
+                    Bcounter=0
+                else:
+                    Bcounter=Bcounter+1
+            elif row[0] in activities:
+                if Ncounter>4 and possibleN==row[0]:
+                    third=row[0]
+                    Ccounter=Ncounter
+                    Ncounter=0
+                    possibleN=''
+                    print(second, secondStop)
+                    print(third, thirdStart)
+                elif possibleN==row[0]:
+                    Ncounter=Ncounter+1
+                elif Tcounter>15 and row[0]!=second:
+                    thirdStart=row[1]
+                    possibleN=row[0]
+                    Ncounter = 1
+            else:
                 Ccounter=0
                 Tcounter= Tcounter+1               
                 
-##        else: 
-##            if row[0] == third:
-##                if Ccounter>0 and Tcounter<3:
-##                    thirdStop=row[2]
-##                if Ccounter>3:
-##                    thirdStop=row[2]
-##                    Tcounter=0                   
-##                Ccounter= Ccounter+1
-##            elif row[0] not in activities:
-##                Ccounter=0
-##                Tcounter= Tcounter+1            
+        elif row[0] == third:
+            if Tcounter<10:
+                thirdStop=row[2]
+                Tcounter=1
+            if Ccounter>8:
+                thirdStop=row[2]
+                Tcounter=0                   
+            Ccounter= Ccounter+1
+        elif row[0] == second and thirdStop==0:
+            if Bcounter>4:
+                third='NA'
+                thirdStart=0
+                Ccounter=Bcounter
+                Bcounter=0
+            else:
+                Bcounter=Bcounter+1
+        else:
+            Ccounter=0
+            Tcounter= Tcounter+1            
 
+    print(first, firstStart)
+    print(first, firstStop)
+    print(second, secondStart)
     print(second, secondStop)
-    return[[first, firstStart, firstStop],[second, secondStart, secondStop]] 
+    print(third, thirdStart)
+    print(third, thirdStop)
+    if thirdStop!=0:
+        return[[first, firstStart, firstStop],[second, secondStart, secondStop],[third, thirdStart, thirdStop]] 
+    if secondStop!=0:
+        return[[first, firstStart, firstStop],[second, secondStart, secondStop]]
+    else:
+        return[[first, firstStart, firstStop]]

@@ -15,7 +15,7 @@ A_list = sorted(A_list, key=lambda x: x[0])
 
 print('processing file')
 
-P_list = list(Process_Features(A_list, 30))
+P_list = list(Process_Features(A_list, 150))
 
 path = './training_data'
 filename=classification + '.csv'
@@ -33,3 +33,4 @@ with open(filepath, 'w') as outfile:
         write.writerow(item)
 
 
+##os.system('say "All Done"')
