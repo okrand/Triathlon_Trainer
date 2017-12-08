@@ -1,9 +1,9 @@
 require (graphics)
-pdf("GBike_raw.pdf")
+pdf("axis_test.pdf")
 
 #names<- c('TimeStamp','Ax','Ay','Az','Gx','Gy','Gz')
 
-data<-read.csv("Bike.csv", header = FALSE)
+data<-read.csv("axis_test.csv", header = FALSE)
 
 #data[order(as.Date(data$V1, format="%Y-%m-%d %H:%M:%S +%f")),]
 
@@ -18,7 +18,7 @@ yRMS<-paste("yRMS: ", sqrt(mean(data$V6^2)))
 zRMS<-paste("zRMS: ", sqrt(mean(data$V7^2)))
 
 
-plot(data$V5, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Rotation Rate", main = "Bike Gyroscope")
+plot(data$V5, type='o', pch='.', col="red", ylim=c(-10,10), xlab="Time", ylab = "Rotation Rate", main = "Axis Test")
 lines(data$V6, type='o', pch='.', col="blue")
 lines(data$V7, type='o', pch='.', col="green")
 legend(0, 10, c("X", "Y", "Z"), col=c("red","blue","green"), pch=c(20,20,20))

@@ -13,8 +13,6 @@ stamps=[]
 s_list=[]
 p=re.compile(r'\d+\.\d+')
 
-
-
 with open(Activity_file, 'r') as infile:
     read = csv.reader(infile)
     A_list = list(read)
@@ -23,20 +21,20 @@ A_list = sorted(A_list, key=lambda x: x[0])
 
 A_list = adjustTime(A_list)
 
-
-
 print('processing file')
-
-P_list = list(Process_Features(A_list, 150))
-
-#G_list=getGroundTruth(P_list)
-
 filename='processed_'.rstrip() + Activity_file
 
-with open(filename, 'w') as outfile:
-    write = csv.writer(outfile)
+P_list = list(Process_Features(A_list, 150))
+##with open(filename, 'r') as infile:
+##    read=csv.reader(infile)
+##    P_list=list(read)
+with open(filename, 'w')as outfile:
+    write=csv.writer(outfile)
     for item in P_list:
         write.writerow(item)
+
+G_list, gr_list, A_name=getGroundTruth(P_list, Activity_file)
+
 for row in P_list:
     stamps.append([row.pop(0)])
 
@@ -45,7 +43,6 @@ for item in stamps:
 
 stampa=[i[0] for i in s_list]
 stampb=[i[1] for i in s_list]
-    
 
 path = './training_data'
 actual, t_list = getTrainingData(path)
@@ -58,26 +55,15 @@ model = svm.SVC(kernel='linear', C=1).fit(t_list, actual)
 
 Pc_list=model.predict(P_list)
 
+Score=model.score(P_list, G_list)
+
+print('Score: ', Score)
+
 R_list=list(zip(Pc_list,stampa, stampb))
 
-filename='results_'.rstrip() +Activity_file
-
-with open(filename, 'w') as outfile:
-    write = csv.writer(outfile)
-    for item in R_list:
-        write.writerow(item)
-
-##with open(filename, 'r') as infile:
-##    read = csv.reader(infile)
-##    R_list=list(read)
-
-E_list = Process_Activity(R_list, Activity_file)
+E_list = Process_Activity(R_list)
 print('Completed')
 
-##with open('A_list.csv', 'r') as infile:
-##    read = csv.reader(infile)
-##    E_list=list(read)
+plotResults(E_list, A_list, gr_list,Score, A_name)
 
-plotResults(E_list, A_list)
-
-#os.system('say "All Done"')
+##os.system('say "All Done"')

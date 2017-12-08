@@ -15,7 +15,7 @@ A_list = sorted(A_list, key=lambda x: x[0])
 
 print('processing file')
 
-P_list = list(Process_Features(A_list, 150))
+P_list = list(Process_Features(A_list, 90))
 
 path = './training_data'
 filename=classification + '.csv'
