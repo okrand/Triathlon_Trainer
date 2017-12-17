@@ -12,25 +12,26 @@ import re
 
 p=re.compile(r'\d+\.\d+')
 
-##def getGroundTruth(P_list):
-##    first=input('FIRST ACTIVITY Enter type(NA if none): ')
-##    firststart=float(input('FIRST ACTIVITY Enter starttime in seconds(0.0 if none): '))
-##    firststop=float(input('FIRST ACTIVITY Enter stoptime in seconds(0.0 if none): '))
-##    second=input('SECOND ACTIVITY Enter type(NA if none): ')
-##    secondstart=float(input('SECOND ACTIVITY Enter starttime in seconds(0.0 if none): '))
-##    secondstop=float(input('SECOND ACTIVITY Enter stoptime in seconds(0.0 if none): '))
-##    third=input('THIRD ACTIVITY Enter type(NA if none): ')
-##    thirdstart=float(input('THIRD ACTIVITY Enter starttime in seconds(0.0 if none): '))
-##    thirdstop=float(input('THIRD ACTIVITY Enter stoptime in seconds(0.0 if none): '))
-##    G_list=[]
-##    for item in P_list:
-##        x=[float(i) for i in p.findall(str(item))]
-##        if x[0] < firststart:
-##            G_list.append('transition')
-##        elif x > firststart and y<firststop:
+def getGroundTruth(P_list, Activity_file):
+    A_name=Activity_file.split('_')[0]
+    filename=A_name.rstrip() + '_gr.csv'
+    with open(filename, 'r') as infile:
+        read=csv.reader(infile)
+        gr_list=list(read)
+
+    G_list=[]
+    for item in P_list:
+        x=[float(i) for i in p.findall(str(item))]
+        maybe='transition'
+        for row in gr_list:
+            if x[0] > float(row[1]) and x[1] < float(row[2]):
+                maybe=row[0]
+                break
+        G_list.append(maybe)
+        
             
-    
-##return[[first,firststart,firststop],[second,secondstart,secondstop],[third,thirdstart,thirdstop]]
+    return G_list, gr_list, A_name
+
 
 def adjustTime(A_list):
     timestamp=float(A_list[0][0])
@@ -38,15 +39,26 @@ def adjustTime(A_list):
         row[0]=float(row[0])-timestamp
     return A_list
 
-def plotResults(E_list, A_list):
+
+def plotResults(E_list, A_list,gr_list, Score, title):
     #Activity=pd.DataFrame(A_list, columns=headers)
+    for row in gr_list:
+        print(row)
     x=np.array([i[0] for i in A_list])
     plt.gca().set_prop_cycle(plt.cycler('color', ['blue','green','red']))
     plt.subplot(2,1,1)
     for i in range(1,4):
         plt.plot(x,[a[i] for a in A_list])
-    plt.title('Results')
+    plt.title(title + "'s Results")
     plt.ylabel('Accelerometer (m/s^2)')
+    diff=0.0
+    counter=0.0
+    calc_list=map(list.__add__, E_list, gr_list)
+    for row in calc_list:
+        diff+= abs(float(row[1]) -float(row[4]))
+        diff+=abs(float(row[2])-float(row[5]))
+        counter+=2
+    avg=diff/counter
 
     for i in E_list:
         ymin, ymax = plt.ylim()
@@ -54,11 +66,15 @@ def plotResults(E_list, A_list):
         plt.axvline(float(i[2]), color='pink')
         plt.text(float(i[1]), ymin, i[0].rstrip() + ' start', rotation='vertical', ha='right', va='bottom')
         plt.text(float(i[2]), ymin, i[0].rstrip() + ' stop', rotation='vertical', ha='right', va = 'bottom')
-    plt.legend(['Ax','Ay','Az'], loc='upper right')
+    for i in gr_list:
+        plt.axvline(float(i[1]), color='red', linestyle='dashed')
+        plt.axvline(float(i[2]), color='red', linestyle='dashed')
+    plt.legend(['Ax','Ay','Az', 'predicted'], loc='upper right')
 
     plt.subplot(2,1,2)
     for i in range(4,7):
         plt.plot(x,[a[i] for a in A_list])
+    xmin, xmax=plt.xlim()
     plt.ylabel('Gyroscope (rev/s)')
     plt.xlabel('time(s)')
     for i in E_list:
@@ -67,8 +83,10 @@ def plotResults(E_list, A_list):
         plt.axvline(float(i[2]), color='pink')
         plt.text(float(i[1]), ymin, i[0].rstrip() + ' start', rotation='vertical', ha='right', va='bottom')
         plt.text(float(i[2]), ymin, i[0].rstrip() + ' stop', rotation='vertical', ha='right', va = 'bottom')
-    plt.legend(['Gx','Gy','Gz'], loc='upper right')
-   
+    for i in gr_list:
+        plt.axvline(float(i[1]), color='red', linestyle='dashed')
+        plt.axvline(float(i[2]), color='red', linestyle='dashed')
+    plt.text(xmax,ymax,'SVM Acc: '+str(Score)+'\nDet Acc:' +str(avg), va='top', ha='right', fontsize=10)
     plt.show()
 
 def Process_Features(l, n):
@@ -190,7 +208,7 @@ def getTrainingData(path):
 
     return Actual, T_list
 
-def Process_Activity(R_list, Activity_file):
+def Process_Activity(R_list):
     firstStart=0
     firstStop=0
     secondStart=0
@@ -320,5 +338,5 @@ def Process_Activity(R_list, Activity_file):
         return[[first, firstStart, firstStop],[second, secondStart, secondStop],[third, thirdStart, thirdStop]] 
     if secondStop!=0:
         return[[first, firstStart, firstStop],[second, secondStart, secondStop]]
-    else:
-        return[[first, firstStart, firstStop]]
+    
+    return[[first, firstStart, firstStop]]
